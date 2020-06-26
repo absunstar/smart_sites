@@ -1,0 +1,112 @@
+<style>
+    .tab-link img {
+        width: 32px;
+        height: 32px;
+        padding: 1px;
+        background: #fff;
+        border-radius: 5px;
+        margin: 0px;
+    }
+
+    .tab-link span {
+        padding-right: 50px;
+        padding-left: 50px;
+        vertical-align: super;
+    }
+</style>
+<div class="main-menu">
+
+    <div id="security_tabs" class="tabs">
+
+        <div class="tabs-header">
+            <a class="tab-link" href="/notifications" x-permissions="nationalities_ui || nationalities_manage">
+                <img src="/images/monitor.png">
+                <span> ##word.menu_monitor## </span>
+            </a>
+
+            <a class="tab-link" href="/security/users">
+                <img src="/images/users.png">
+                <span> ##word.menu_users## </span>
+            </a>
+
+            <a class="tab-link" href="/companies" x-permissions="companies_ui || companies_manage">
+                <img src="/images/company.png">
+                <span> ##word.menu_company## </span>
+            </a>
+
+            <a class="tab-link" onclick="site.showTabs(event, '#main_tabs')">
+                <img src="/images/back.png">
+                <span> ##word.main_menu##</span>
+            </a>
+
+        </div>
+    </div>
+
+    <div id="general_tabs" class="tabs">
+        <div class="tabs-header">
+
+            <a class="tab-link" href="/goves" x-permissions="goves_ui || goves_manage">
+                <img src="/images/gov.png">
+                <span> ##word.menu_goves## </span>
+            </a>
+
+            <a class="tab-link" href="/city" x-permissions="city_ui || city_manage">
+                <img src="/images/city.png">
+                <span> ##word.menu_city## </span>
+            </a>
+
+            <a class="tab-link" href="/area" x-permissions="area_ui || area_manage">
+                <img src="/images/area.png">
+                <span> ##word.menu_area## </span>
+            </a>
+
+            <a class="tab-link" href="/customers" x-permissions="customers_ui || customers_manage">
+                <img src="/images/customer.png">
+                <span> ##word.customers## </span>
+            </a>
+
+            <a class="tab-link" onclick="site.showTabs(event, '#main_tabs')">
+                <img src="/images/back.png">
+                <span> ##word.main_menu##</span>
+            </a>
+
+        </div>
+    </div>
+
+
+    <div id="empty_tabs" class="tabs">
+        <div class="tabs-header">
+
+
+            <a class="tab-link" onclick="site.showTabs(event, '#main_tabs')">
+                <img src="/images/back.png">
+                <span> ##word.main_menu##</span>
+            </a>
+
+        </div>
+    </div>
+    <div id="main_tabs" class="tabs" ng-hide="'##user.type##' == 'customer'">
+        <div class="tabs-header">
+
+
+            <a class="tab-link" onclick="site.showTabs(event, '#company_tabs')">
+                <img src="/images/main.png">
+                <span > ##word.main##</span>
+
+            </a>
+
+            <a class="tab-link" onclick="site.showTabs(event, '#security_tabs')">
+                <img src="/images/users.png">
+                <span> ##word.security_system##</span>
+            </a>
+         
+            <a class="tab-link" onclick="site.showTabs(event, '#general_tabs')">
+                <img src="/images/gov.png">
+                <span>##word.general_setting##</span>
+            </a>
+
+
+        </div>
+
+    </div>
+</div>

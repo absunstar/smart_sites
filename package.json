@@ -1,0 +1,24 @@
+{
+  "name": "smart_code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "pos": "node pos.js",
+    "restaurant": "node restaurant.js",
+    "gym": "node gym.js",
+    "lawyer": "node lawyer.js",
+    "academy": "node academy.js",
+    "employee": "node employee.js",
+    "icar": "node icar.js",
+    "pmp": "node pmp.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "isite": "^1.13.47",
+    "zklib": "^0.2.11"
+  }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head x-import="head.html">
+  <style>
+    :root {
+
+      --x-background: url('/images/car_back.png') repeat fixed;
+    }
+
+    .table th {
+      height: 50px;
+      width: 50px;
+      background-color: #273aa3;
+      color: #ffffff;
+    }
+
+    #posts {
+      display: block;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    .post {
+      display: inline-grid;
+      border: 1px solid #5369e0;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      line-height: 1.8;
+      width: 320px;
+      height: 470px;
+      margin: 15px;
+    }
+
+    .post h2 {
+      height: 50px;
+      font-family: cursive;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      padding: 5px;
+      background: #3f51b5;
+      text-shadow: 1px 1px 8px #000000;
+    }
+
+    .post img {
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+      border-radius: 20px;
+      width: 120px;
+      min-height: 180px;
+    }
+
+    .icc img {
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+      width: 170px;
+    }
+
+    .post p {
+      padding: 15px;
+      text-align: right !important;
+      color: #ffffff;
+      background: #3f51b5;
+      min-height: 200px;
+      font-size: 16px;
+      text-shadow: 1px 1px 1px #5369e0;
+    }
+
+    .btn.saving {
+      width: 500px;
+      height: 60px;
+      font-size: 22px;
+      padding-top: 20px;
+      background: rgb(18, 18, 211);
+      font-weight: bold;
+    }
+
+    input {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body class="##session.lang##">
+  <nav class="sitebar" x-import="sitebar/index.html" ng-controller="sitebar"></nav>
+
+  <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom"></nav>
+  <form>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col1"></div>
+      <div class="col4">
+        <div id="customerOpenionAdd" class="padding margin">
+          <table class="table box-shadow " ng-init="discountEditorAdd = true">
+            <tr>
+              <th colspan="2" class="pointer" ng-click="discountEditorAdd = !discountEditorAdd">
+                ##word.customer_opinions##
+              </th>
+            </tr>
+            <tr>
+
+              <td>
+                <i-control label="##word.full_name##" ng-model="customer_openion.full_name">
+                </i-control>
+                <i-control label="##word.your_opinion##" ng-model="customer_openion.your_opinion">
+                </i-control>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td class="center">
+                <i-button label="##word.share_opinion##" type="fa fa-thumbs-o-up saving"
+                  ng-click="addCustomerOpenion(customer_openion)">
+                </i-button>
+              </td>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+      <div class="col2"></div>
+
+      <div class="col4">
+        <div class="padding margin">
+          <table class="table box-shadow " ng-init="discountEditorAdd = true">
+            <tr>
+              <th colspan="2" class="pointer" ng-click="discountEditorAdd = !discountEditorAdd">
+                ##word.order_part_now##
+              </th>
+            </tr>
+            <tr>
+
+              <td>
+                <i-control label="##word.Vehicle_model##" ng-model="order_part.Vehicle_model">
+                </i-control>
+
+                <i-control label="##word.vehicle_identifi##" ng-model="order_part.vehicle_identifi">
+                </i-control>
+
+                <i-control label="##word.part_number##" ng-model="order_part.part_number">
+                </i-control>
+
+                <i-control label="##word.customer_name##" ng-model="order_part.customer_name">
+                </i-control>
+
+                <i-control label="##word.phone##" ng-model="order_part.phone">
+                </i-control>
+
+                <i-list label="##word.customers_gov##" ng-model="order_part.gov" items="govList" display="name"
+                  ng-change="getCityList(order_part.gov)" ng-search="_search.$govNameContact">
+                </i-list>
+
+                <i-list label="##word.city##" ng-model="order_part.city" items="cityList"
+                  ng-change="getAreaList(order_part.city)" display="name" ng-search="_search.$order_part.$city_search">
+                </i-list>
+
+                <i-list label="##word.area##" ng-model="order_part.area" items="areaList" display="name"
+                  ng-search="_search.$order_part.$area_search">
+                </i-list>
+
+                <i-control label="##word.detailed_address##" ng-model="customer.address">
+                </i-control>
+
+                <i-control label="##word.email_optional##" ng-model="order_part.email_optional">
+                </i-control>
+
+              </td>
+
+            </tr>
+
+            <tr>
+              <td class="center">
+                <i-button type="fa fa-car saving" label="##word.order_now##" ng-click="addOrderInvoice()">
+                </i-button>
+              </td>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </form>
+
+  <div x-import="scripts.html"></div>
+  <script>
+
+  </script>
+</body>
+
+</html>

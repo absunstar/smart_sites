@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head x-import="head.html">
+    <style>
+        :root {
+
+            --x-background: url('/images/car_back.png') repeat fixed;
+        }
+
+        .post {
+            display: inline-grid;
+            border: 1px solid rgb(18, 18, 211);
+            background: #fff;
+            color: #000;
+            text-align: center;
+            line-height: 0.8;
+            width: 700px;
+            height: 350px;
+            margin: 10px;
+            padding: 17px;
+        }
+    </style>
+</head>
+
+<body class="##session.lang##">
+
+    <nav x-import="sitebar/index.html" class="sitebar" data-ng-controller="sitebar">
+
+    </nav>
+
+    <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom">
+
+    </nav>
+
+    <div id="main-layout" class="container">
+        <div class="row">
+            <div class="row" ng-controller="customer_openion">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col4"></div>
+                    <div class="col4 center post">
+                        <h1 class="blue bold center line">##word.customer_opinion##</h1>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div x-import="scripts.html"></div>
+    <script  x-import="customer-opinion/index.js"></script>
+
+</body>
+
+</html>

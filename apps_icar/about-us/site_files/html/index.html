@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head x-import="head.html">
+    <style>
+        :root {
+
+            --x-background: url('/images/car_back.png') repeat fixed;
+        }
+
+        .post {
+            display: inline-grid;
+            border: 1px solid rgb(18, 18, 211);
+            background: #fff;
+            color: #000;
+            text-align: center;
+            line-height: 0.8;
+            width: 700px;
+            height: 350px;
+            margin: 10px;
+            padding: 17px;
+        }
+    </style>
+</head>
+
+<body class="##session.lang##">
+
+    <nav x-import="sitebar/index.html" class="sitebar" data-ng-controller="sitebar">
+
+    </nav>
+
+    <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom">
+
+    </nav>
+
+    <div id="main-layout" class="container">
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col3"></div>
+            <div class="col6 center post">
+                <h1 class="blue bold center line">##word.about_us##</h1>
+                <br>
+                <br>
+                <h3> ##word.about_us1##</h3>
+
+            </div>
+        </div>
+
+    </div>
+    <div x-import="scripts.html"></div>
+
+</body>
+
+</html>

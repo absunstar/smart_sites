@@ -1,0 +1,46 @@
+<h2 class="brand ">
+    <div class="row">
+        <div class="col4" help-id="brand_title">
+            <a x-permissions="login" href="#" onclick="event.stopPropagation(); $('.sitebar .links').toggle(200)"> <i
+                    class="fa fa-bars"></i>
+            </a>
+            <a x-permissions="login" href="#" onclick="event.stopPropagation(); $('.sitebar .links').toggle(200)">
+                ##word.brand_title## <span> ##word.brand_tag##</span>
+            </a>
+            <a x-permissions="!login" href="/">
+                ##word.brand_title## <span> ##word.brand_tag##</span>
+            </a>
+        </div>
+
+        <div class="col4 text-center">
+
+            <a class="font-f" href="/how_use"> ##word.how_use## </a>
+
+            <a class="font-f" href="/about_us"> ##word.about_us## </a>
+
+            <a class="font-f" href="/customer_opinion"> ##word.customer_opinion## </a>
+
+            <a class="font-f" href="/order_status"> ##word.order_status## </a>
+
+        </div>
+
+        <div class="col4 text-left ">
+            <div class="info">
+                <span x-features="login" class=" user-name"> ##user.name## </span>
+                <a x-features="!login" id="btn_register" onclick="site.showModal('#customerRegisterModal')">
+                    ##word.customer_register##
+                </a>
+                <a x-features="login" id="btn_logout" ng-click="logout()"> ##word.security_logout##
+                </a>
+
+                <a x-features="!login" id="btn_login" ng-click="login()"> ##word.security_login## </a>
+            </div>
+        </div>
+    </div>
+
+</h2>
+
+
+<div class="links">
+    <div x-import="menu/index.html"></div>
+</div>

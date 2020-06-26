@@ -1,0 +1,17 @@
+[
+    {
+        "name": "order_status",
+        "en": "Order Status",
+        "ar": "حالة الطلب"
+    },
+    {
+        "name": "enter_reference_number",
+        "en": "Enter the reference number",
+        "ar": "ادخل الرقم المرجعي"
+    },
+    {
+        "name": "follow_up",
+        "en": "Follow up",
+        "ar": "متابعة"
+    }
+]
