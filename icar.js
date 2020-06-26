@@ -1,5 +1,5 @@
 const site = require('isite')({
-    port: [80 , 40006],
+    port: [80 , 33001],
     lang: 'ar',
     version : '1.0.0',
     name: 'icar',
@@ -27,7 +27,7 @@ site.get({
 
 site.get({
     name: '/',
-    path: site.dir + '/app_cars/0/site_files/html/index.html',
+    path: site.dir + '/html/index.html',
     parser: 'html css js'
 })
 

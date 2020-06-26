@@ -4,7 +4,7 @@
   --x-background: #ffffff;
   --font-size: 14px;
   --form-color: #444;
-  --input-background-color: var(--x-background);
+  --input-background-color: #ffffff;
   --input-focus-border-color: var(--theme-color);
   --input-color: #000000;
   --color: #444;
@@ -14,7 +14,6 @@
   --modal-box-shadow-color: #555;
   --modal-animation-name: animateopacity;
   --modal-background: #0000006e;
-  --modal-content-background: var(--x-background);
   --btn-box-shadow-color: #555;
   --btn-border-radius: 0px;
   --btn-color: #fff;
