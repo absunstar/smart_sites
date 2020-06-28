@@ -2,18 +2,20 @@ app.controller("icar", function ($scope, $http, $timeout) {
   $scope._search = {};
 
   $scope.customer_opinion = {};
-  $scope.order_status = {};
+  $scope.order_status = { place: 'personal' };
   $scope.code = '';
 
 
   $scope.addCustomerOpinion = function () {
 
     $scope.error = '';
+
     const v = site.validated('#customerOpinionAddModal');
     if (!v.ok) {
       $scope.error = v.messages[0].ar;
       return;
     }
+
     $scope.customer_opinion.date = new Date();
 
     $scope.busy = true;
@@ -60,8 +62,8 @@ app.controller("icar", function ($scope, $http, $timeout) {
         $scope.busy = false;
         if (response.data.done) {
           $scope.code = response.data.doc.code;
-          console.log($scope.code );
-          
+          $scope.order_status = { place: 'personal' };
+
         } else {
           $scope.error = response.data.error;
         }

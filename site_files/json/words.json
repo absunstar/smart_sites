@@ -721,8 +721,8 @@
     },
     {
         "name": "mobile",
-        "en": "Mobile",
-        "ar": "رقم الموبيل"
+        "en": "Mobile Number",
+        "ar": "رقم الجوال"
     },
     {
         "name": "website",

@@ -10,6 +10,11 @@
         "ar": "قطع غيار السيارات"
     },
     {
+        "name": "delivery_inside_outside",
+        "en": "Delivery is free inside Riyadh on the same day and outside Riyadh within three days",
+        "ar": "التوصيل مجاني داخل الرياض في نفس اليوم و خارج الرياض في خلال ثلاثة أيام"
+    },
+    {
         "name": "companies_basic_information",
         "en": "Basic Informations",
         "ar": "البيانات الاساسية"
@@ -18,6 +23,21 @@
         "name": "companies_contact_information",
         "en": "Contact Informations",
         "ar": "بيانات الاتصال"
+    },
+    {
+        "name": "workshop_center",
+        "en": "Workshop/center",
+        "ar": "ورشة/مركز"
+    },
+    {
+        "name": "personal",
+        "en": "Personal",
+        "ar": "شخصي"
+    },
+    {
+        "name": "place_delivery",
+        "en": "Place of delivery",
+        "ar": "مكان التوصيل"
     },
     {
         "name": "request_successfully",
