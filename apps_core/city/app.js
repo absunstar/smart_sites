@@ -63,8 +63,8 @@ module.exports = function init(site) {
       city_doc.active = true
     }
 
-    city_doc.company = site.get_company(req)
-    city_doc.branch = site.get_branch(req)
+    // city_doc.company = site.get_company(req)
+    // city_doc.branch = site.get_branch(req)
 
     $city.add(city_doc, (err, doc) => {
       if (!err) {
@@ -194,10 +194,10 @@ module.exports = function init(site) {
       where['name'] = new RegExp(where['name'], "i");
     }
     
-    if (site.get_company(req) && site.get_company(req).id)
-    where['company.id'] = site.get_company(req).id
-/*     where['branch.code'] = site.get_branch(req).code
- */
+    // if (site.get_company(req) && site.get_company(req).id)
+    // where['company.id'] = site.get_company(req).id
+    //  where['branch.code'] = site.get_branch(req).code
+ 
 
     $city.findMany({
       select: req.body.select || {},

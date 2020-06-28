@@ -56,8 +56,8 @@ module.exports = function init(site) {
     printers_path_doc.$res = res
 
     
-    printers_path_doc.company = site.get_company(req)
-    printers_path_doc.branch = site.get_branch(req)
+    // printers_path_doc.company = site.get_company(req)
+    // printers_path_doc.branch = site.get_branch(req)
 
 
     $printers_path.add(printers_path_doc, (err, doc) => {
@@ -195,9 +195,9 @@ module.exports = function init(site) {
       delete where['active']
     }
 
-    where['company.id'] = site.get_company(req).id
-/*     where['branch.code'] = site.get_branch(req).code
- */    
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+     
 
     $printers_path.findMany({
       select: req.body.select || {},

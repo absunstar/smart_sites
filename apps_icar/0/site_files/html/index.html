@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head x-import="head.html">
+  <style>
+    :root {
+
+      --x-background: url('/images/car_back.png') repeat fixed;
+    }
+
+    .table th {
+      height: 50px;
+      width: 50px;
+      background-color: #273aa3;
+      color: #ffffff;
+      border-radius: 0px;
+      font-size: medium;
+    }
+
+    .post {
+      display: inline-grid;
+      border: 1px solid rgb(18, 18, 211);
+      background: #fff;
+      color: #000;
+      text-align: center;
+      line-height: 0.8;
+      width: 500px;
+      height: 350px;
+      margin: 10px;
+      padding: 17px;
+    }
+
+    .btn.saving {
+      width: 500px;
+      height: 60px;
+      font-size: 22px;
+      padding-top: 20px;
+      background: rgb(18, 18, 211);
+      font-weight: bold;
+    }
+
+    input {
+      background-color: white;
+    }
+  </style>
+</head>
+
+
+<body class="##session.lang##">
+  <nav class="sitebar" x-import="sitebar/index.html" ng-controller="sitebar"></nav>
+
+  <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom"></nav>
+
+
+
+  <div id="main-layout" class="container">
+    <div class="row" ng-controller="icar">
+      <br>
+      <br>
+      <div class="row" ng-show="!code">
+        <div class="col1"></div>
+        <div class="col4">
+          <div id="customerOpinionAdd" class="padding margin">
+            <table class="table box-shadow " ng-init="discountEditorAdd = true">
+              <tr>
+                <th colspan="2" class="pointer" ng-click="discountEditorAdd = !discountEditorAdd">
+                  ##word.customer_opinions##
+                </th>
+              </tr>
+              <tr>
+
+                <td>
+                  <i-control label="##word.full_name##" ng-model="customer_opinion.full_name">
+                  </i-control>
+                  <i-control label="##word.your_opinion##" ng-model="customer_opinion.your_opinion">
+                  </i-control>
+                </td>
+
+              </tr>
+
+              <tr>
+                <td class="center">
+                  <i-button label="##word.share_opinion##" type="fa fa-thumbs-o-up saving"
+                    ng-click="addCustomerOpinion()">
+                  </i-button>
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+        </div>
+        <div class="col2"></div>
+
+        <div class="col4">
+          <div class="padding margin">
+            <table class="table box-shadow " ng-init="discountEditorAdd = true">
+              <tr>
+                <th colspan="2" class="pointer" ng-click="discountEditorAdd = !discountEditorAdd">
+                  ##word.order_part_now##
+                </th>
+              </tr>
+              <tr>
+
+                <td>
+                  <i-control label="##word.Vehicle_model##" ng-model="order_status.Vehicle_model">
+                  </i-control>
+
+                  <i-control label="##word.vehicle_identifi##" ng-model="order_status.vehicle_identifi">
+                  </i-control>
+
+                  <i-control label="##word.part_number##" ng-model="order_status.part_number">
+                  </i-control>
+
+                  <i-control label="##word.customer_name##" ng-model="order_status.customer_name">
+                  </i-control>
+
+                  <i-control label="##word.phone##" ng-model="order_status.phone">
+                  </i-control>
+
+                  <i-list label="##word.customers_gov##" ng-model="order_status.gov" items="govList" display="name"
+                    ng-change="getCityList(order_status.gov)" ng-search="_search.$govNameContact">
+                  </i-list>
+
+                  <i-list label="##word.city##" ng-model="order_status.city" items="cityList"
+                    ng-change="getAreaList(order_status.city)" display="name"
+                    ng-search="_search.$order_status.$city_search">
+                  </i-list>
+
+                  <i-list label="##word.area##" ng-model="order_status.area" items="areaList" display="name"
+                    ng-search="_search.$order_status.$area_search">
+                  </i-list>
+
+                  <i-control label="##word.detailed_address##" ng-model="order_status.address">
+                  </i-control>
+
+                  <i-control label="##word.email_optional##" ng-model="order_status.email_optional">
+                  </i-control>
+                  <br>
+
+                  <i-files ng-model="order_status.files"></i-files>
+                </td>
+
+              </tr>
+
+              <tr>
+                <td class="center">
+                  <i-button type="fa fa-car saving" label="##word.order_now##" ng-click="addOrderStatus()">
+                  </i-button>
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="row" ng-show="code">
+        <div class="col3"></div>
+        <div class="col6 center box-shadow post">
+          <h1 class="blue bold center line">##word.request_successfully##</h1>
+          <br>
+          <h2 class="bold center"> ##word.confirmation_mobile##</h2>
+          <h2 class="bold center"> ##word.follow_request_reference_num##</h2>
+          <h2 class="center fa fa-arrow-down"></h2>
+          <h2 class="bold center blue"> {{code}}</h2>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div x-import="scripts.html"></div>
+  <script x-import="0/index.js"></script>
+
+</body>
+
+</html>

@@ -60,7 +60,7 @@ module.exports = function init(site) {
         minute: new Date().getMinutes()
       },
       active: true
-    }, (err, doc) => {})
+    }, (err, doc) => { })
   })
 
 
@@ -87,33 +87,33 @@ module.exports = function init(site) {
       shifts_doc.active = true
     }
 
-    shifts_doc.company = site.get_company(req)
-    shifts_doc.branch = site.get_branch(req)
+    // shifts_doc.company = site.get_company(req)
+    // shifts_doc.branch = site.get_branch(req)
 
-    $shifts.find({
+    // $shifts.find({
 
-      where: {
-        'company.id': site.get_company(req).id,
-        'branch.code': site.get_branch(req).code,
-        'code': shifts_doc.code
-      }
-    }, (err, doc) => {
-      if (!err && doc) {
+    //   where: {
+    //     'company.id': site.get_company(req).id,
+    //     'branch.code': site.get_branch(req).code,
+    //     'code': shifts_doc.code
+    //   }
+    // }, (err, doc) => {
+    //   if (!err && doc) {
 
-        response.error = 'Code Exists'
-        res.json(response)
+    //     response.error = 'Code Exists'
+    //     res.json(response)
+    //   } else {
+    $shifts.add(shifts_doc, (err, doc) => {
+      if (!err) {
+        response.done = true
+        response.doc = doc
       } else {
-        $shifts.add(shifts_doc, (err, doc) => {
-          if (!err) {
-            response.done = true
-            response.doc = doc
-          } else {
-            response.error = err.message
-          }
-          res.json(response)
-        })
+        response.error = err.message
       }
+      res.json(response)
     })
+    //   }
+    // })
   })
 
   site.post("/api/shifts/update", (req, res) => {
@@ -222,8 +222,8 @@ module.exports = function init(site) {
     let where = req.body.where || {}
 
     where['to_date'] = null || undefined
-    where['company.id'] = site.get_company(req).id
-    where['branch.code'] = site.get_branch(req).code
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
 
     $shifts.findOne({
       select: req.body.select || {},
@@ -265,8 +265,8 @@ module.exports = function init(site) {
 
     let where = {}
 
-    where['company.id'] = site.get_company(req).id
-    where['branch.code'] = site.get_branch(req).code
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
     where['active'] = true
 
     $shifts.findOne({
@@ -315,8 +315,8 @@ module.exports = function init(site) {
       where['code'] = new RegExp(where['code'], "i");
     }
 
-    where['company.id'] = site.get_company(req).id
-    where['branch.code'] = site.get_branch(req).code
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
 
     $shifts.findMany({
       select: req.body.select || {},

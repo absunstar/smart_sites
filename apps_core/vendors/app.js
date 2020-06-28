@@ -69,8 +69,8 @@ module.exports = function init(site) {
     vendors_doc.$req = req
     vendors_doc.$res = res
 
-    vendors_doc.company = site.get_company(req)
-    vendors_doc.branch = site.get_branch(req)
+    // vendors_doc.company = site.get_company(req)
+    // vendors_doc.branch = site.get_branch(req)
 
     $vendors.add(vendors_doc, (err, doc) => {
       if (!err) {
@@ -204,9 +204,9 @@ module.exports = function init(site) {
       delete where['active']
     }
 
-    where['company.id'] = site.get_company(req).id
-    /*     where['branch.code'] = site.get_branch(req).code
-     */
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+     
     $vendors.findMany({
       select: req.body.select || {},
       where: where,

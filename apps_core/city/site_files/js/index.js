@@ -6,7 +6,7 @@ app.controller("city", function ($scope, $http, $timeout) {
   $scope.displayaddCity = function () {
     $scope.error = '';
     $scope.city = {
-      image_url: '/images/city.png',
+      image_url: '/images/neighborhood.png',
       active: true
 
     };

@@ -62,8 +62,8 @@ module.exports = function init(site) {
       $req: req,
       $res: res
     })
-    customers_group_doc.company = site.get_company(req)
-    customers_group_doc.branch = site.get_branch(req)
+    // customers_group_doc.company = site.get_company(req)
+    // customers_group_doc.branch = site.get_branch(req)
 
     $customers_group.add(customers_group_doc, (err, doc) => {
       if (!err) {
@@ -202,9 +202,9 @@ module.exports = function init(site) {
     //   delete where['active']
     // }
 
-    where['company.id'] = site.get_company(req).id
-/*     where['branch.code'] = site.get_branch(req).code
- */
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+ 
     $customers_group.findMany({
       select: req.body.select || {},
       where: where,

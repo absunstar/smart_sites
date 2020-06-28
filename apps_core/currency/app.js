@@ -56,30 +56,30 @@ module.exports = function init(site) {
       currency_doc.active = true
     }
 
-    currency_doc.company = site.get_company(req)
-    currency_doc.branch = site.get_branch(req)
+    // currency_doc.company = site.get_company(req)
+    // currency_doc.branch = site.get_branch(req)
 
-    $currency.findMany({
-      where: {
-        'company.id': site.get_company(req).id,
-      }
-    }, (err, docs, count) => {
-      if (!err && count >= site.get_company(req).currency) {
+    // $currency.findMany({
+    //   where: {
+    //     'company.id': site.get_company(req).id,
+    //   }
+    // }, (err, docs, count) => {
+    //   if (!err && count >= site.get_company(req).currency) {
 
-        response.error = 'You have exceeded the maximum number of extensions'
-        res.json(response)
+    //     response.error = 'You have exceeded the maximum number of extensions'
+    //     res.json(response)
+    //   } else {
+    $currency.add(currency_doc, (err, doc) => {
+      if (!err) {
+        response.done = true
+        response.doc = doc
       } else {
-        $currency.add(currency_doc, (err, doc) => {
-          if (!err) {
-            response.done = true
-            response.doc = doc
-          } else {
-            response.error = err.message
-          }
-          res.json(response)
-        })
+        response.error = err.message
       }
+      res.json(response)
     })
+    //   }
+    // })
   })
 
   site.post("/api/currency/update", (req, res) => {
@@ -191,7 +191,7 @@ module.exports = function init(site) {
     if (where['name']) {
       where['name'] = new RegExp(where['name'], "i");
     }
-    where['company.id'] = site.get_company(req).id
+    // where['company.id'] = site.get_company(req).id
 
     $currency.findMany({
       select: req.body.select || {},

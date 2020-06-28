@@ -1,12 +1,12 @@
-app.controller("customer_openion", function ($scope, $http, $timeout) {
+app.controller("customer_opinion", function ($scope, $http, $timeout) {
   $scope._search = {};
 
-  $scope.customer_openion = {};
+  $scope.customer_opinion = {};
 
 
-  $scope.addCustomerOpenion = function () {
+  $scope.addCustomerOpinion = function () {
     $scope.error = '';
-    const v = site.validated('#customerOpenionAddModal');
+    const v = site.validated('#customerOpinionAddModal');
     if (!v.ok) {
       $scope.error = v.messages[0].ar;
       return;
@@ -14,14 +14,14 @@ app.controller("customer_openion", function ($scope, $http, $timeout) {
     $scope.busy = true;
     $http({
       method: "POST",
-      url: "/api/customer_openion/add",
-      data: $scope.customer_openion
+      url: "/api/customer_opinion/add",
+      data: $scope.customer_opinion
     }).then(
       function (response) {
         $scope.busy = false;
         if (response.data.done) {
-          site.hideModal('#customerOpenionAddModal');
-          $scope.getCustomerOpenionList();
+          site.hideModal('#customerOpinionAddModal');
+          $scope.getCustomerOpinionList();
         } else {
           $scope.error = response.data.error;
         }
@@ -34,12 +34,12 @@ app.controller("customer_openion", function ($scope, $http, $timeout) {
 
 
  
-  $scope.getCustomerOpenionList = function (where) {
+  $scope.getCustomerOpinionList = function (where) {
     $scope.busy = true;
     $scope.list = [];
     $http({
       method: "POST",
-      url: "/api/customer_openion/all",
+      url: "/api/customer_opinion/all",
       data: {
         where: where
       }
@@ -49,9 +49,9 @@ app.controller("customer_openion", function ($scope, $http, $timeout) {
         if (response.data.done && response.data.list.length > 0) {
           $scope.list = response.data.list;
           $scope.count = response.data.count;
-          site.hideModal('#customerOpenionSearchModal');
+          site.hideModal('#customerOpinionSearchModal');
           $scope.search = {};
-
+          
         }
       },
       function (err) {
@@ -63,6 +63,6 @@ app.controller("customer_openion", function ($scope, $http, $timeout) {
 
   };
 
-  $scope.getCustomerOpenionList();
+  $scope.getCustomerOpinionList();
 
 });

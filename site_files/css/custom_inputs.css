@@ -19,3 +19,15 @@
     font-weight :bold;
     font-size: 20px;
 }
+
+.darkGray {
+  color: grey;
+}
+
+.txt_center,
+.txt_center input {
+    text-align : center;
+    font-weight :bold;
+    font-size: 20px;
+
+  }

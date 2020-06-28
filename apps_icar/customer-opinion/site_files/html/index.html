@@ -8,6 +8,20 @@
             --x-background: url('/images/car_back.png') repeat fixed;
         }
 
+        .bigLine {
+            border-bottom: 10px solid blue;
+            padding-bottom: 5px;
+            width :110px;
+            border-radius: 15px;
+        }
+
+        .line {
+            border-bottom: 3px solid rgb(194, 194, 194);
+            padding-bottom: 5px;
+            width :200px;
+            border-radius: 15px;
+        }
+
         .post {
             display: inline-grid;
             border: 1px solid rgb(18, 18, 211);
@@ -15,8 +29,8 @@
             color: #000;
             text-align: center;
             line-height: 0.8;
-            width: 700px;
-            height: 350px;
+            width: 8 00px;
+            height: auto;
             margin: 10px;
             padding: 17px;
         }
@@ -35,27 +49,46 @@
 
     <div id="main-layout" class="container">
         <div class="row">
-            <div class="row" ng-controller="customer_openion">
-                <br>
-                <br>
+            <div class="row" ng-controller="customer_opinion">
                 <br>
                 <br>
                 <br>
                 <br>
 
+
                 <div class="row">
                     <div class="col4"></div>
-                    <div class="col4 center post">
-                        <h1 class="blue bold center line">##word.customer_opinion##</h1>
+                    <div class="col4 post">
                         <br>
                         <br>
+                        <br>
+                        <h1 class="blue bold center">##word.customer_opinion##</h1>
+                       
+                        <div ng-repeat="c in list">
+                            <br>
+                            <br>
+                            <h2 class="darkGray ">{{c.full_name}}</h2>
+                            <br>
+                            <p class="gray ">{{c.date | date : 'dd - MM - yyyy'}}</p>
+
+                            <div class=" bigLine"></div>
+
+                            <br>
+                            <p class="darkGray bold center">{{c.your_opinion}}</p>
+                            <br>
+                            <br>
+                            <div class="center line"></div>
+                        </div>
                     </div>
+
+
+
                 </div>
             </div>
         </div>
     </div>
     <div x-import="scripts.html"></div>
-    <script  x-import="customer-opinion/index.js"></script>
+    <script x-import="customer-opinion/index.js"></script>
 
 </body>
 

@@ -1,6 +1,6 @@
 module.exports = function init(site) {
 
-  const $customer_openion = site.connectCollection("customer_openion")
+  const $customer_opinion = site.connectCollection("customer_opinion")
 
 
   site.get({
@@ -16,37 +16,33 @@ module.exports = function init(site) {
   })
 
 
-  site.post("/api/customer_openion/add", (req, res) => {
+  site.post("/api/customer_opinion/add", (req, res) => {
     let response = {
       done: false
     }
-    if (!req.session.user) {
-      response.error = 'Please Login First'
-      res.json(response)
-      return
-    }
 
-    let goves_doc = req.body
-    goves_doc.$req = req
-    goves_doc.$res = res
+    let customer_opinion_doc = req.body
+    customer_opinion_doc.$req = req
+    customer_opinion_doc.$res = res
 
-    // goves_doc.add_user_info = site.security.getUserFinger({
+    // customer_opinion_doc.add_user_info = site.security.getUserFinger({
     //   $req: req,
     //   $res: res
     // })
 
-    if (typeof goves_doc.active === 'undefined') {
-      goves_doc.active = true
+    if (typeof customer_opinion_doc.active === 'undefined') {
+      customer_opinion_doc.active = true
     }
 
-    // goves_doc.company = site.get_company(req)
-    // goves_doc.branch = site.get_branch(req)
+    // customer_opinion_doc.company = site.get_company(req)
+    // customer_opinion_doc.branch = site.get_branch(req)
 
-
-    $customer_openion.add(goves_doc, (err, doc) => {
+    
+    $customer_opinion.add(customer_opinion_doc, (err, doc) => {
       if (!err) {
         response.done = true
         response.doc = doc
+
       } else {
         response.error = err.message
       }
@@ -56,7 +52,7 @@ module.exports = function init(site) {
   })
 
 
-  site.post("/api/customer_openion/all", (req, res) => {
+  site.post("/api/customer_opinion/all", (req, res) => {
     let response = {
       done: false
     }
@@ -70,7 +66,7 @@ module.exports = function init(site) {
     // if (site.get_company(req) && site.get_company(req).id)
     //   where['company.id'] = site.get_company(req).id
 
-    $customer_openion.findMany({
+    $customer_opinion.findMany({
       select: req.body.select || {},
       where: where,
       sort: req.body.sort || {

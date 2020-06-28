@@ -160,24 +160,24 @@ module.exports = function init(site) {
     }
 
 
-    if (req.session.user) {
+    // if (req.session.user) {
 
-      customers_doc.company = site.get_company(req)
-      customers_doc.branch = site.get_branch(req)
+    //   customers_doc.company = site.get_company(req)
+    //   customers_doc.branch = site.get_branch(req)
 
-      user.branch_list = [{
-        company: site.get_company(req),
-        branch: site.get_branch(req)
-      }]
+    //   user.branch_list = [{
+    //     company: site.get_company(req),
+    //     branch: site.get_branch(req)
+    //   }]
 
-    } else {
-      customers_doc.active = true
+    // } else {
+    //   customers_doc.active = true
 
-      user.branch_list = [{
-        company: customers_doc.company,
-        branch: customers_doc.branch
-      }]
-    }
+    //   user.branch_list = [{
+    //     company: customers_doc.company,
+    //     branch: customers_doc.branch
+    //   }]
+    // }
 
 
     $customers.add(customers_doc, (err, doc) => {
@@ -286,10 +286,10 @@ module.exports = function init(site) {
       id: customers_doc.id
     }
 
-    user.branch_list = [{
-      company: site.get_company(req),
-      branch: site.get_branch(req)
-    }]
+    // user.branch_list = [{
+    //   company: site.get_company(req),
+    //   branch: site.get_branch(req)
+    // }]
 
     if (customers_doc.id) {
       $customers.edit({
@@ -477,7 +477,7 @@ module.exports = function init(site) {
       where['mobile'] = where.mobile;
     }
 
-    where['company.id'] = site.get_company(req).id
+    // where['company.id'] = site.get_company(req).id
 
     if (req.session.user && req.session.user.type === 'customer') {
       where['id'] = req.session.user.ref_info.id;

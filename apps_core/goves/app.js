@@ -58,34 +58,34 @@ module.exports = function init(site) {
       goves_doc.active = true
     }
 
-    goves_doc.company = site.get_company(req)
-    goves_doc.branch = site.get_branch(req)
+    // goves_doc.company = site.get_company(req)
+    // goves_doc.branch = site.get_branch(req)
 
-    $goves.find({
+    // $goves.find({
 
-      where: {
+    //   where: {
 
-        'company.id': site.get_company(req).id,
-        'branch.code': site.get_branch(req).code,
-        'name': goves_doc.name
-      }
-    }, (err, doc) => {
-      if (!err && doc) {
+    //     'company.id': site.get_company(req).id,
+    //     'branch.code': site.get_branch(req).code,
+    //     'name': goves_doc.name
+    //   }
+    // }, (err, doc) => {
+    //   if (!err && doc) {
 
-        response.error = 'Name Exists'
-        res.json(response)
+    //     response.error = 'Name Exists'
+    //     res.json(response)
+    //   } else {
+    $goves.add(goves_doc, (err, doc) => {
+      if (!err) {
+        response.done = true
+        response.doc = doc
       } else {
-        $goves.add(goves_doc, (err, doc) => {
-          if (!err) {
-            response.done = true
-            response.doc = doc
-          } else {
-            response.error = err.message
-          }
-          res.json(response)
-        })
+        response.error = err.message
       }
+      res.json(response)
     })
+    //   }
+    // })
   })
 
   site.post("/api/goves/update", (req, res) => {
@@ -198,8 +198,8 @@ module.exports = function init(site) {
       where['name'] = new RegExp(where['name'], "i");
     }
 
-    if (site.get_company(req) && site.get_company(req).id)
-      where['company.id'] = site.get_company(req).id
+    // if (site.get_company(req) && site.get_company(req).id)
+    //   where['company.id'] = site.get_company(req).id
 
     $goves.findMany({
       select: req.body.select || {},

@@ -54,31 +54,31 @@ module.exports = function init(site) {
       jobs_doc.active = true
     }
 
-    jobs_doc.company = site.get_company(req)
-    jobs_doc.branch = site.get_branch(req)
+    // jobs_doc.company = site.get_company(req)
+    // jobs_doc.branch = site.get_branch(req)
 
-    $jobs.find({
-      where: {
-        'company.id': site.get_company(req).id,
-        'branch.code': site.get_branch(req).code,
-        'name': jobs_doc.name
-      }
-    }, (err, doc) => {
-      if (!err && doc) {
-        response.error = 'Name Exists'
-        res.json(response)
+    // $jobs.find({
+    //   where: {
+    //     'company.id': site.get_company(req).id,
+    //     'branch.code': site.get_branch(req).code,
+    //     'name': jobs_doc.name
+    //   }
+    // }, (err, doc) => {
+    //   if (!err && doc) {
+    //     response.error = 'Name Exists'
+    //     res.json(response)
+    //   } else {
+    $jobs.add(jobs_doc, (err, doc) => {
+      if (!err) {
+        response.done = true
+        response.doc = doc
       } else {
-        $jobs.add(jobs_doc, (err, doc) => {
-          if (!err) {
-            response.done = true
-            response.doc = doc
-          } else {
-            response.error = err.message
-          }
-          res.json(response)
-        })
+        response.error = err.message
       }
+      res.json(response)
     })
+    //   }
+    // })
   })
 
   site.post("/api/jobs/update", (req, res) => {
@@ -189,13 +189,13 @@ module.exports = function init(site) {
     if (where['name']) {
       where['name'] = new RegExp(where['name'], "i");
     }
- 
+
 
     delete where.search
 
-    where['company.id'] = site.get_company(req).id
-    /*     where['branch.code'] = site.get_branch(req).code
-     */
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+
     $jobs.findMany({
       select: req.body.select || {},
       where: where,

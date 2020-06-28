@@ -39,8 +39,8 @@ module.exports = function init(site) {
     let doc = req.body
     doc.$req = req
     doc.$res = res
-    doc.company = site.get_company(req)
-    doc.branch = site.get_branch(req)
+    // doc.company = site.get_company(req)
+    // doc.branch = site.get_branch(req)
     doc.add_user_info = site.security.getUserFinger({
       $req: req,
       $res: res
@@ -138,9 +138,9 @@ module.exports = function init(site) {
     let response = {}
     response.done = false
     let where = req.body.where || {}
-    where['company.id'] = site.get_company(req).id
-/*     where['branch.code'] = site.get_branch(req).code
- */
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+ 
     if (!req.session.user) {
       res.json(response)
       return

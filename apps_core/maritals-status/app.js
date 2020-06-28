@@ -42,8 +42,8 @@ module.exports = function init(site) {
       $req: req,
       $res: res
     })
-    doc.company = site.get_company(req)
-    doc.branch = site.get_branch(req)
+    // doc.company = site.get_company(req)
+    // doc.branch = site.get_branch(req)
     $maritals_status.add(doc, (err, id) => {
       if (!err) {
         response.done = true
@@ -137,9 +137,9 @@ module.exports = function init(site) {
     response.done = false
 
     let where = req.body.where || {}
-    where['company.id'] = site.get_company(req).id
-/*     where['branch.code'] = site.get_branch(req).code
- */
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+ 
     if (!req.session.user) {
       res.json(response)
       return

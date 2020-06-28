@@ -4,9 +4,9 @@ app.controller("order_status", function ($scope, $http, $timeout) {
   $scope.order_status = {};
 
 
-  $scope.addCustomerOpenion = function () {
+  $scope.addOrderStatus = function () {
     $scope.error = '';
-    const v = site.validated('#customerOpenionAddModal');
+    const v = site.validated('#orderStatusAddModal');
     if (!v.ok) {
       $scope.error = v.messages[0].ar;
       return;
@@ -20,8 +20,7 @@ app.controller("order_status", function ($scope, $http, $timeout) {
       function (response) {
         $scope.busy = false;
         if (response.data.done) {
-          site.hideModal('#customerOpenionAddModal');
-          $scope.getCustomerOpenionList();
+          site.hideModal('#orderStatusAddModal');
         } else {
           $scope.error = response.data.error;
         }
@@ -33,15 +32,17 @@ app.controller("order_status", function ($scope, $http, $timeout) {
   };
 
 
- 
-  $scope.getCustomerOpenionList = function (where) {
+
+  $scope.getOrderStatusList = function (where) {
     $scope.busy = true;
     $scope.list = [];
+    let code = { code: where };
+
     $http({
       method: "POST",
       url: "/api/order_status/all",
       data: {
-        where: where
+        where: code
       }
     }).then(
       function (response) {
@@ -49,7 +50,6 @@ app.controller("order_status", function ($scope, $http, $timeout) {
         if (response.data.done && response.data.list.length > 0) {
           $scope.list = response.data.list;
           $scope.count = response.data.count;
-          site.hideModal('#customerOpenionSearchModal');
           $scope.search = {};
 
         }
@@ -63,6 +63,5 @@ app.controller("order_status", function ($scope, $http, $timeout) {
 
   };
 
-  $scope.getCustomerOpenionList();
 
 });

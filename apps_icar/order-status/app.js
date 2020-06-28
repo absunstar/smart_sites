@@ -16,6 +16,32 @@ module.exports = function init(site) {
   })
 
 
+  function addZero(code, number) {
+    let c = number - code.toString().length
+    for (let i = 0; i < c; i++) {
+      code = '0' + code.toString()
+    }
+    return code
+  };
+
+  $order_status.newCode = function () {
+
+    let y = new Date().getFullYear().toString().substr(2, 2)
+    let m = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'][new Date().getMonth()].toString()
+    let d = new Date().getDate()
+    let lastCode = site.storage('order_last_code') || 0
+    let lastMonth = site.storage('order_last_month') || m
+    if (lastMonth != m) {
+      lastMonth = m
+      lastCode = 0
+    }
+    lastCode++
+    site.storage('order_last_code', lastCode)
+    site.storage('order_last_month', lastMonth)
+    return y + lastMonth + addZero(d, 2) + addZero(lastCode, 4)
+  };
+
+
   site.post("/api/order_status/add", (req, res) => {
     let response = {
       done: false
@@ -26,24 +52,24 @@ module.exports = function init(site) {
     //   return
     // }
 
-    let goves_doc = req.body
-    goves_doc.$req = req
-    goves_doc.$res = res
+    let order_status_doc = req.body
+    order_status_doc.$req = req
+    order_status_doc.$res = res
 
-    // goves_doc.add_user_info = site.security.getUserFinger({
+    // order_status_doc.add_user_info = site.security.getUserFinger({
     //   $req: req,
     //   $res: res
     // })
 
-    if (typeof goves_doc.active === 'undefined') {
-      goves_doc.active = true
+    if (typeof order_status_doc.active === 'undefined') {
+      order_status_doc.active = true
     }
 
-    // goves_doc.company = site.get_company(req)
-    // goves_doc.branch = site.get_branch(req)
+    order_status_doc.code = $order_status.newCode()
+    // order_status_doc.company = site.get_company(req)
+    // order_status_doc.branch = site.get_branch(req)
 
-
-    $order_status.add(goves_doc, (err, doc) => {
+    $order_status.add(order_status_doc, (err, doc) => {
       if (!err) {
         response.done = true
         response.doc = doc
@@ -56,6 +82,7 @@ module.exports = function init(site) {
   })
 
 
+
   site.post("/api/order_status/all", (req, res) => {
     let response = {
       done: false
@@ -63,10 +90,10 @@ module.exports = function init(site) {
 
     let where = req.body.where || {}
 
-    if (where['name']) {
-      where['name'] = new RegExp(where['name'], "i");
+    if (where['code']) {
+      where['code'] = where['code'];
     }
-
+ 
     // if (site.get_company(req) && site.get_company(req).id)
     //   where['company.id'] = site.get_company(req).id
 
@@ -81,6 +108,7 @@ module.exports = function init(site) {
       if (!err) {
         response.done = true
         response.list = docs
+        
         response.count = count
       } else {
         response.error = err.message

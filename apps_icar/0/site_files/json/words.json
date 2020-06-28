@@ -20,6 +20,21 @@
         "ar": "بيانات الاتصال"
     },
     {
+        "name": "request_successfully",
+        "en": "Your request has been successfully received",
+        "ar": "تم إستلام طلبك بنجاح"
+    },
+    {
+        "name": "confirmation_mobile",
+        "en": "A confirmation message has been sent to your mobile phone with the reference number",
+        "ar": "تم إرسال رساله تأكيد الى جوالك بالرقم المرجعي"
+    },
+    {
+        "name": "follow_request_reference_num",
+        "en": "To follow up on your request, use the reference number",
+        "ar": "لمتابعة طلبك استخدم الرقم المرجعي"
+    },
+    {
         "name": "companies_phone",
         "en": "Phone",
         "ar": "التليفون"

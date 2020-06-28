@@ -15,6 +15,11 @@
         "ar": "المنطقة"
     },
     {
+        "name": "register_data",
+        "en": "Register Data",
+        "ar": "بيانات التسجيل"
+    },
+    {
         "name": "Vehicle_model",
         "en": "Vehicle type and model",
         "ar": "نوع السيارة و الموديل"
@@ -725,9 +730,19 @@
         "ar": "الموقع الإلكترونى"
     },
     {
+        "name": "reference_number",
+        "en": "Reference Number",
+        "ar": "الرقم المرجعي"
+    },
+    {
         "name": "password",
         "en": "password",
         "ar": "كلمة المرور"
+    },
+    {
+        "name": "password_return",
+        "en": "Password Return",
+        "ar": "إعادة كتابة كلمة المرور"
     },
     {
         "name": "close",

@@ -18,7 +18,7 @@ module.exports = function init(site) {
 
     $vendors_group.add({
       name: "مجموعة موردين إفتراضية",
-      code : "1",
+      code: "1",
       image_url: '/images/customer_groups.png',
       company: {
         id: doc.id,
@@ -51,9 +51,9 @@ module.exports = function init(site) {
     vendors_group_doc.$req = req
     vendors_group_doc.$res = res
 
-    
-    vendors_group_doc.company = site.get_company(req)
-    vendors_group_doc.branch = site.get_branch(req)
+
+    // vendors_group_doc.company = site.get_company(req)
+    // vendors_group_doc.branch = site.get_branch(req)
 
 
     $vendors_group.add(vendors_group_doc, (err, doc) => {
@@ -89,7 +89,7 @@ module.exports = function init(site) {
         $req: req,
         $req: req,
         $res: res
-      },(err , result) => {
+      }, (err, result) => {
         if (!err) {
           response.done = true
           response.doc = result.doc
@@ -151,7 +151,7 @@ module.exports = function init(site) {
       }, (err, result) => {
         if (!err) {
           response.done = true
-          response.doc=result.doc
+          response.doc = result.doc
         } else {
           response.error = err.message
         }
@@ -184,14 +184,14 @@ module.exports = function init(site) {
       delete where['active']
     }
 
-    where['company.id'] = site.get_company(req).id
-/*     where['branch.code'] = site.get_branch(req).code
- */    
+    // where['company.id'] = site.get_company(req).id
+    // where['branch.code'] = site.get_branch(req).code
+
 
     $vendors_group.findMany({
       select: req.body.select || {},
       where: where,
-      sort: req.body.sort || {id:-1},
+      sort: req.body.sort || { id: -1 },
       limit: req.body.limit
     }, (err, docs, count) => {
       if (!err) {
@@ -204,5 +204,5 @@ module.exports = function init(site) {
       res.json(response)
     })
   })
-  
+
 }

@@ -66,8 +66,8 @@ module.exports = function init(site) {
       area_doc.active = true
     }
 
-    area_doc.company = site.get_company(req)
-    area_doc.branch = site.get_branch(req)
+    // area_doc.company = site.get_company(req)
+    // area_doc.branch = site.get_branch(req)
 
 
     $area.add(area_doc, (err, doc) => {
@@ -204,10 +204,11 @@ module.exports = function init(site) {
       where['name'] = new RegExp(where['name'], "i");
     }
 
-    if (site.get_company(req) && site.get_company(req).id)
-      where['company.id'] = site.get_company(req).id
-    /*     where['branch.code'] = site.get_branch(req).code
-     */
+    // if (site.get_company(req) && site.get_company(req).id)
+    //   where['company.id'] = site.get_company(req).id
+
+    // where['branch.code'] = site.get_branch(req).code
+
     $area.findMany({
       select: req.body.select || {},
       where: where,
