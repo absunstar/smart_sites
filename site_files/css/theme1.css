@@ -122,9 +122,12 @@ img {
     border-width: 5px;
     border-color: #fbfbfb;
 }
+
 .line {
-    border-bottom: 2px solid blue;
+    border-bottom: 4px solid blue;
     padding-bottom: 5px;
+    width: auto;
+    border-radius: 10px;
 }
 
 .font-f{
