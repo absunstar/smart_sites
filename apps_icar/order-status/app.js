@@ -93,9 +93,32 @@ module.exports = function init(site) {
     if (where['code']) {
       where['code'] = where['code'];
     }
- 
-    // if (site.get_company(req) && site.get_company(req).id)
-    //   where['company.id'] = site.get_company(req).id
+
+    if (where.date) {
+      let d1 = site.toDate(where.date)
+      let d2 = site.toDate(where.date)
+      d2.setDate(d2.getDate() + 1)
+      where.date = {
+        '$gte': d1,
+        '$lt': d2
+      }
+    } else if (where && where.date_from) {
+      let d1 = site.toDate(where.date_from)
+      let d2 = site.toDate(where.date_to)
+      d2.setDate(d2.getDate() + 1);
+      where.date = {
+        '$gte': d1,
+        '$lt': d2
+      }
+      delete where.date_from
+      delete where.date_to
+    }
+
+
+    if (where['payment_method']) {
+      where['payment_method.id'] = where['payment_method'].id;
+      delete where['payment_method']
+    }
 
     $order_status.findMany({
       select: req.body.select || {},
@@ -108,7 +131,7 @@ module.exports = function init(site) {
       if (!err) {
         response.done = true
         response.list = docs
-        
+
         response.count = count
       } else {
         response.error = err.message

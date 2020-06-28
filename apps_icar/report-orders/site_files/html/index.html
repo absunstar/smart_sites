@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" x-permissions="report_orders_ui || report_orders_manage" data-ng-app="myApp">
+
+<head x-import="head.html">
+
+</head>
+
+<body class="##session.lang##">
+
+    <nav x-import="sitebar/index.html" class="sitebar" data-ng-controller="sitebar">
+    </nav>
+    <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom">
+    </nav>
+
+    <div id="main-layout" class="container">
+        <div class="row">
+            <div class="row" ng-controller="report_orders" x-permissions="login">
+
+                <div x-import="report-orders/search_all_modal.html"></div>
+                <div class="row">
+                    <h1 class="bold text-center"> ##word.report_orders_name## </h1>
+                </div>
+
+                <div class="top-actions">
+
+                    <i-button type="search" x-permissions="report_orders_search || report_orders_manage"
+                        label="##word.search_all##" onclick="site.showModal('#reportInvoicesSearchModal')"></i-button>
+
+                    <span ng-show="busy">
+                        <span class="sr-only">Loading...</span>
+                    </span>
+                    <h3 class="bold text-center"> ##word.count## : {{count}} </h3>
+                    <br>
+                </div>
+
+                <div class="row">
+
+                    <table class="table loaded center hover bold" id="t1">
+                        <tr>
+                            <th> ##word.date## </th>
+                            <th> ##word.Vehicle_model## </th>
+                            <th> ##word.vehicle_identifi## </th>
+                            <th> ##word.part_number## </th>
+                            <th> ##word.customer_name## </th>
+                            <th> ##word.status## </th>
+                            <th> ##word.actions## </th>
+                        </tr>
+
+                        <tr ng-repeat="c in list | orderBy : '-id'">
+
+                            <td class="brown"> {{c.date  | date:'dd - MM - yyyy'}} </td>
+                            <td> {{c.Vehicle_model}} </td>
+                            <td> {{c.vehicle_identifi}} </td>
+                            <td> {{c.part_number}} </td>
+                            <td> {{c.customer_name}} </td>
+                            <td> {{c.status.##session.lang##}} </td>
+                            <td>  </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <i-button x-permissions="report_orders_print || report_orders_manage" type="print"
+                        label="##word.print##" onclick="site.print('#t1')"></i-button>
+                    <i-button x-permissions="report_orders_export || report_orders_manage" type="export"
+                        label="##word.export_to_excel##" onclick="export_to_xlsx('t1' , 'report_orders.xlsx')">
+                    </i-button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div x-import="scripts.html"></div>
+
+    <script x-permissions="login" x-import="report-orders/index.js"></script>
+</body>
+
+</html>
