@@ -11,8 +11,8 @@
     },
     {
         "name": "delivery_inside_outside",
-        "en": "Delivery is free inside Riyadh on the same day and outside Riyadh within three days",
-        "ar": "التوصيل مجاني داخل الرياض في نفس اليوم و خارج الرياض في خلال ثلاثة أيام"
+        "en": "Delivery is free inside Riyadh on the same day and outside Riyadh within three working days",
+        "ar": "التوصيل مجاني داخل الرياض في نفس اليوم و خارج الرياض في خلال ثلاثة أيام عمل"
     },
     {
         "name": "companies_basic_information",

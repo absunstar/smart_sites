@@ -52,6 +52,39 @@ module.exports = function init(site) {
   })
 
 
+  site.post("/api/customer_opinion/delete", (req, res) => {
+    let response = {
+      done: false
+    }
+
+    if (!req.session.user) {
+      response.error = 'Please Login First'
+      res.json(response)
+      return
+    }
+
+    let id = req.body.id
+
+    if (id) {
+      $customer_opinion.delete({
+        id: id,
+        $req: req,
+        $res: res
+      }, (err, result) => {
+        if (!err) {
+          response.done = true
+        } else {
+          response.error = err.message
+        }
+        res.json(response)
+      })
+    } else {
+      response.error = 'no id'
+      res.json(response)
+    }
+  })
+
+
   site.post("/api/customer_opinion/all", (req, res) => {
     let response = {
       done: false

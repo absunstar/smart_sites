@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" x-permissions="cars_type_ui || cars_type_manage" data-ng-app="myApp">
+
+<head x-import="head.html">
+
+</head>
+
+<body class="##session.lang##">
+    <nav x-import="sitebar/index.html" class="sitebar" data-ng-controller="sitebar">
+
+    </nav>
+
+    <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom">
+
+    </nav>
+    <div id="main-layout" class="container">
+        <div class="row">
+            <div class="row" ng-controller="cars_type" x-permissions="login">
+                <div x-import="cars-type/add_modal.html"></div>
+                <div x-import="cars-type/update_modal.html"></div>
+                <div x-import="cars-type/delete_modal.html"></div>
+                <div x-import="cars-type/view_modal.html"></div>
+                <div x-import="cars-type/search_all_modal.html"></div>
+
+                <div class="row">
+                    <h1 class="bold text-center"> ##word.cars_types## </h1>
+                </div>
+
+                <div class="top-actions">
+                    <i-button type="add" x-permissions="cars_type_add || cars_type_manage" label="##word.cars_type_new##" ng-click="displayAddCarsType()"></i-button>
+                    <i-button type="search" x-permissions="cars_type_search || cars_type_manage" label="##word.search_all##" onclick="site.showModal('#carsTypeSearchModal')"></i-button>
+
+                    <span ng-show="busy">
+                        <span class="sr-only">Loading...</span>
+                    </span>
+                    <h3 class="bold text-center"> ##word.count## : {{count}} </h3>
+                    <br>
+                </div>
+
+                <table class="table loaded hover center bold" id="t1">
+                    <tr>
+                        <th class="not-print"> ##word.logo## </th>
+                        <th> ##word.car_type_ar## </th>
+                        <th> ##word.car_type_en## </th>
+                        <th> ##word.status## </th>
+
+                        <th class="not-print"> ##word.actions## </th>
+                    </tr>
+                    <tr ng-repeat="c in list | orderBy : '-id'">
+                        <td class="not-print">
+                            <img class="logo" ng-src="{{c.image_url}}">
+                        </td>
+
+                        <td> {{c.name_ar}} </td>
+                        <td> {{c.name_en}} </td>
+
+                        <td>
+                            <p ng-show="c.active == true" class="green"> ##word.active## </p>
+                            <p ng-show="c.active == false" class="red"> ##word.not_active## </p>
+                        </td>
+
+                        <td class="center not-print">
+                            <i-button type="details" x-permissions="cars_type_view || cars_type_manage" label="##word.details##" ng-click="displayDetailsCarsType(c)"></i-button>
+
+                            <i-button type="update" x-permissions="cars_type_edit || cars_type_manage" label="##word.update##" ng-click="displayUpdateCarsType(c)"></i-button>
+
+                            <i-button type="delete" x-permissions="cars_type_delete || cars_type_manage" label="##word.delete##" ng-click="displayDeleteCarsType(c)"></i-button>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="row">
+                    <i-button x-permissions="cars_type_print || cars_type_manage" type="print" label="##word.print##" onclick="site.print('#t1')"></i-button>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div x-import="scripts.html"></div>
+
+    <script x-permissions="login" x-import="cars-type/index.js"></script>
+</body>
+
+</html>

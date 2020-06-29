@@ -17,7 +17,7 @@
       font-size: medium;
     }
 
-    
+
 
     .post {
       display: inline-grid;
@@ -111,6 +111,11 @@
               <tr>
 
                 <td>
+
+                  <i-list v="r" label="##word.car_type##" ng-model="order_status.car_type" items="carsTypeList"
+                  display="name_##session.lang##"   ng-search="_search.$car_type_search">
+                  </i-list>
+
                   <i-control label="##word.Vehicle_model##" v="r" ng-model="order_status.Vehicle_model">
                   </i-control>
 

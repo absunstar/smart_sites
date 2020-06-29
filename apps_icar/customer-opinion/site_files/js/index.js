@@ -33,7 +33,34 @@ app.controller("customer_opinion", function ($scope, $http, $timeout) {
   };
 
 
- 
+
+  $scope.deleteCustomerOpinion = function () {
+    $scope.busy = true;
+    $scope.error = '';
+
+    $http({
+      method: "POST",
+      url: "/api/customer_opinion/delete",
+      data: {
+        id: $scope.customer_opinion.id
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done) {
+          $scope.getCustomerOpinionList();
+        } else {
+          $scope.error = response.data.error;
+        }
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+
+
   $scope.getCustomerOpinionList = function (where) {
     $scope.busy = true;
     $scope.list = [];
@@ -51,7 +78,7 @@ app.controller("customer_opinion", function ($scope, $http, $timeout) {
           $scope.count = response.data.count;
           site.hideModal('#customerOpinionSearchModal');
           $scope.search = {};
-          
+
         }
       },
       function (err) {

@@ -1,0 +1,72 @@
+[
+    {
+        "name": "customers_add",
+        "en": "Add Customer",
+        "ar": "إضافة عميل"
+    },
+    {
+        "name": "cars_type_informations",
+        "en": "Car Type Informations",
+        "ar": "بيانات نوع سيارة"
+    },
+    {
+        "name": "cars_types_name",
+        "en": "Car Types",
+        "ar": "مجموعات العملاء"
+    },
+    {
+        "name": "cars_type_menus",
+        "en": "Car Type Menu",
+        "ar": "قائمة مجموعة العملاء"
+    },
+    {
+        "name": "cars_type_code",
+        "en": "Car Type Code",
+        "ar": "كود مجموعة العملاء"
+    },
+    {
+        "name": "cars_types",
+        "en": "Cars Types",
+        "ar": "أنواع السيارات"
+    },
+    {
+        "name": "car_type",
+        "en": "Car Type",
+        "ar": "نوع السيارة"
+    },
+    {
+        "name": "car_type_ar",
+        "en": "Car Type Arabic",
+        "ar": "نوع السيارة بالعربية"
+    },
+    {
+        "name": "car_type_en",
+        "en": "Car Type English",
+        "ar": "نوع السيارة بالإنجليزية"
+    },
+    {
+        "name": "cars_type_new",
+        "en": "New Car Type",
+        "ar": "نوع سيارة جديدة"
+    },
+    {
+        "name": "cars_type_details",
+        "en": "Car Type Details",
+        "ar": "تفاصيل نوع سيارة"
+    },
+    {
+        "name": "cars_type_update",
+        "en": "Edit Car Type",
+        "ar": "تعديل نوع سيارة"
+    },
+    {
+        "name": "cars_type_delete",
+        "en": "Delte Car Type",
+        "ar": "حذف نوع سيارة"
+    },
+    {
+        "name": "cars_type_add_name",
+        "en": "Add Car Type",
+        "ar": "إضافة نوع سيارة"
+    }
+]

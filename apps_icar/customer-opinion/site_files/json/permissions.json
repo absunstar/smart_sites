@@ -1,0 +1,5 @@
+[
+    { "module_name" : "public" , "screen_name" : "customer-opinion" , "name":"customer_opinion_manage" , "en":"Manage" , "ar":"إدارة"},
+    { "module_name" : "public" , "screen_name" : "customer-opinion" , "name":"customer_opinion_delete" , "en":"Delete" , "ar":"حذف"},
+    { "module_name" : "public" , "screen_name" : "customer-opinion" , "name":"customer_opinion_export" , "en":"Export" , "ar":"تصدير"}
+]

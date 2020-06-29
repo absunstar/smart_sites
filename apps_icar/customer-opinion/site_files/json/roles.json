@@ -1,0 +1,7 @@
+[{
+    "module_name" : "public" ,
+    "name": "customer_opinion_admin",
+    "en": "Customer Opinion Admin",
+    "ar": "إدارة أراء العملاء",
+    "permissions": ["customer_opinion_manage"]
+}]

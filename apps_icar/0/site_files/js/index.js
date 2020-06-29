@@ -151,6 +151,32 @@ app.controller("icar", function ($scope, $http, $timeout) {
     )
   };
 
+  $scope.getCArsTypeList = function (where) {
+    $scope.busy = true;
+    $http({
+      method: "POST",
+      url: "/api/cars_type/all",
+      data: {
+        where: {
+          active: true
+        },
+        select: { id: 1, name_ar: 1, name_en: 1 }
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done && response.data.list.length > 0) {
+          $scope.carsTypeList = response.data.list;
+
+        }
+      },
+      function (err) {
+        $scope.busy = false;
+        $scope.error = err;
+      }
+    )
+  };
 
   $scope.getGovList();
+  $scope.getCArsTypeList();
 });

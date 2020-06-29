@@ -21,8 +21,8 @@
     },
     {
         "name": "Vehicle_model",
-        "en": "Vehicle type and model",
-        "ar": "نوع السيارة و الموديل"
+        "en": "Vehicle Model",
+        "ar": "موديل السيارة"
     },
     {
         "name": "vehicle_identifi",
