@@ -42,7 +42,7 @@ site.words.add({
 })
 
 site.loadLocalApp('client-side')
-site.loadLocalApp('security')
+site.importApp(__dirname + '/apps_private/security')
 site.importApp(__dirname + '/apps_private/ui-print')
 site.importApp(__dirname + '/apps_private/ui-help')
 
