@@ -1,5 +1,4 @@
-
-<div data-ng-controller="login" id="loginModal" class="modal fade" tabindex="-1" role="dialog">
+<div data-ng-controller="login" id="loginModal" class="modal small fade" tabindex="-1" role="dialog">
 
     <div class="modal-content">
 
@@ -10,29 +9,34 @@
 
         <div class="modal-body">
 
-                <h1 ng-show="busy">
-                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span>
-                    </h1>
+            <h1 ng-show="busy">
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span>
+            </h1>
 
             <form ng-hide="busy">
-                <div class="control">
-                    <label>##word.security_user_email##</label>
-                    <input ng-model="userEmail" type="text"  ng-keydown="tryLogin($event)">
-                </div>
-                <div class="control">
-                    <label>##word.security_user_password##</label>
-                    <input ng-model="userPassword" type="password" ng-keydown="tryLogin($event)">
+                <div class="row">
+
+                    <i-control class="col6" help-id="" v="r" label="##word.security_user_email##" type="text"
+                        ng-keydown="tryLogin($event)" ng-model="userEmail">
+                    </i-control>
+
+                    <i-control class="col6" help-id="" v="r" label="##word.security_user_password##"
+                        ng-model="userPassword" type="password" ng-keydown="tryLogin($event)">
+                    </i-control>
+
                 </div>
 
             </form>
 
-            <p class="yellow" >{{error}}</p>
+            <h3 class="error">{{error}}</h3>
 
         </div>
         <div class="modal-footer center">
-                <a ng-hide="busy" id="loginBtn" ng-click="login()" class="btn bg-green"> <i class="fa fa-sign-in" aria-hidden="true"></i> ##word.security_login## </a>
-            <a class="btn bg-blue" onclick="site.hideModal('#loginModal')"> <i class="fa fa-times" aria-hidden="true"></i> ##word.close## </a>
-            
+
+            <i-button id="loginBtn" type="add" label="##word.security_login##" ng-click="login()"></i-button>
+            <i-button type="close" label="##word.close##" onclick="site.hideModal('#loginModal')"> >
+            </i-button>
+
         </div>
 
 
