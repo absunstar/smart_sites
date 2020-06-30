@@ -251,6 +251,11 @@ nav.sitebottom a.link:hover {
 
 }
 
+.fonti {
+  margin-left: 22px;
+  font-size: large;  
+}
+
 .bg-white{
   background-color: white;
 }
