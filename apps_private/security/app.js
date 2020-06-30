@@ -81,8 +81,8 @@ module.exports = function init(site) {
     let response = {
       done: false
     }
-
-    if (!req.session.user) {
+    
+    if (!req.session.user && req.body.type !='customer') {
       response.error = 'You Are Not Login'
       res.json(response)
       return
@@ -94,6 +94,7 @@ module.exports = function init(site) {
     site.security.addUser(user, (err, _id) => {
       if (!err) {
         response.done = true
+
       } else {
         response.error = err.message
       }

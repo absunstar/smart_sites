@@ -16,7 +16,7 @@ app.controller("security", function ($scope, $http, $interval) {
       function (err) {
         $scope.error = err;
       }
-      )
+    )
   };
 
 
@@ -28,7 +28,7 @@ app.controller("security", function ($scope, $http, $interval) {
       data: {}
     }).then(
       function (response) {
-        if(response.data.done){
+        if (response.data.done) {
           $scope.roles = response.data.roles;
         }
       },
@@ -138,9 +138,9 @@ app.controller("security", function ($scope, $http, $interval) {
       }
     }
     $scope.user.roles.push({
-      name : role.name,
-      en : role.en,
-      ar : role.ar
+      name: role.name,
+      en: role.en,
+      ar: role.ar
     });
     $scope.role = {};
   };
@@ -170,6 +170,7 @@ app.controller("security", function ($scope, $http, $interval) {
     $scope.user = { profile: { image_url: '/images/user.png', files: [] }, permissions: [], roles: [] };
     site.showModal('#addUserModal');
   };
+
   $scope.add = function () {
     $scope.busy = true;
     $http({
@@ -187,10 +188,11 @@ app.controller("security", function ($scope, $http, $interval) {
         }
       },
       function (err) {
-        
+
       }
-      )
+    )
   };
+
 
   $scope.edit = function (user) {
     $scope.view(user);
@@ -215,9 +217,9 @@ app.controller("security", function ($scope, $http, $interval) {
         }
       },
       function (err) {
-        
+
       }
-      )
+    )
   };
 
   $scope.remove = function (user) {
@@ -242,9 +244,9 @@ app.controller("security", function ($scope, $http, $interval) {
         }
       },
       function (err) {
-       
+
       }
-      )
+    )
   };
   $scope.details = function (user) {
     $scope.view(user);
@@ -269,9 +271,9 @@ app.controller("security", function ($scope, $http, $interval) {
         }
       },
       function (err) {
-       
+
       }
-      )
+    )
   };
   $scope.loadAll();
   $scope.loadRoles();

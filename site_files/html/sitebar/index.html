@@ -27,7 +27,7 @@
         <div class="col4 text-left ">
             <div class="info">
                 <span x-features="login" class=" user-name"> ##user.name## </span>
-                <a x-features="!login" id="btn_register" onclick="site.showModal('#customerRegisterModal')">
+                <a x-features="!login" id="btn_register" ng-click="registerCustomer()">
                     ##word.customer_register##
                 </a>
                 <a x-features="login" id="btn_logout" ng-click="logout()"> ##word.security_logout##

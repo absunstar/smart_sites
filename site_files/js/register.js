@@ -37,13 +37,15 @@ app.controller('register', function ($scope, $http) {
      site.showModal('#customerRegisterModal')
    }; */
 
-  $scope.registerCustomer = function () {
+
+
+   $scope.registerCustomer = function () {
     $scope.error = '';
     if ($scope.busy) {
       return;
     }
     $scope.busy = true;
-
+    
     const v = site.validated('#customerRegisterModal');
     if (!v.ok) {
       $scope.error = v.messages[0].ar;

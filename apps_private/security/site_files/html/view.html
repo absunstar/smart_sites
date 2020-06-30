@@ -26,6 +26,15 @@
                     </a>
                 </td>
             </tr>
+            <tr>
+                <td class="title">##word.phone##</td>
+                <td>
+                    <a ng-show="user.profile.phone" target="_blank" href="tel:{{user.profile.phone}}">
+                        {{user.profile.phone}}
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
 
             <tr>
                 <td class="title">##word.notes##</td>

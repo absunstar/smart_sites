@@ -254,3 +254,8 @@ nav.sitebottom a.link:hover {
 .bg-white{
   background-color: white;
 }
+
+.userPrint {
+  user-select :all
+}
+
