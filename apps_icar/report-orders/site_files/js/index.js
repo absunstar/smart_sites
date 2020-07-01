@@ -30,12 +30,125 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
     )
   };
 
+  $scope.updateReportOrdersList = function (c) {
+    $scope.error = '';
+
+
+    if (c.status.id == 1) {
+      c.status = {
+        id: 1,
+        en: 'hold',
+        ar: 'معلق'
+      }
+
+    } else if (c.status.id == 2) {
+      c.status = {
+        id: 2,
+        en: 'Under Delivery',
+        ar: 'قيد التوصيل'
+      }
+    } else if (c.status.id == 3) {
+      c.status = {
+        id: 3,
+        en: 'Delivered',
+        ar: 'تم التوصيل'
+      }
+    }
+
+
+    $scope.busy = true;
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: c
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done) {
+          $scope.getReportOrdersList({ date: new Date() });
+
+        } else {
+          $scope.error = 'Please Login First';
+        }
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+
+  $scope.displayDetailsReportOrdersList = function (report_orders) {
+    $scope.error = '';
+    $scope.viewReportOrdersList(report_orders);
+    $scope.report_orders = {};
+    site.showModal('#reportOrdersViewModal');
+  };
+
+  $scope.viewReportOrdersList = function (report_orders) {
+    $scope.busy = true;
+    $scope.error = '';
+    $http({
+      method: "POST",
+      url: "/api/order_status/view",
+      data: {
+        id: report_orders.id
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done) {
+          $scope.report_orders = response.data.doc;
+        } else {
+          $scope.error = response.data.error;
+        }
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+  $scope.displayDeleteReportOrdersList = function (report_orders) {
+    $scope.error = '';
+    $scope.viewReportOrdersList(report_orders);
+    $scope.report_orders = {};
+    site.showModal('#reportOrdersDeleteModal');
+  };
+
+  $scope.deleteReportOrdersList = function () {
+    $scope.busy = true;
+    $scope.error = '';
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/delete",
+      data: {
+        id: $scope.report_orders.id
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done) {
+          site.hideModal('#reportOrdersDeleteModal');
+          $scope.getReportOrdersList();
+        } else {
+          $scope.error = response.data.error;
+        }
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+
 
 
   $scope.searchAll = function () {
     $scope._search = {};
     $scope.getReportOrdersList($scope.search);
-    site.hideModal('#reportInvoicesSearchModal');
+    site.hideModal('#reportOrdersSearchModal');
     $scope.search = {}
   };
 

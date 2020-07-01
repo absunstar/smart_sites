@@ -3,5 +3,20 @@
         "name": "report_orders_name",
         "en": "Report Orders",
         "ar": "تقرير الطلبات"
+    },
+    {
+        "name": "under_delivery",
+        "en": "Under Delivery",
+        "ar": "قيد التوصيل"
+    },
+    {
+        "name": "delivered",
+        "en": "Delivered",
+        "ar": "تم التوصيل"
+    },
+    {
+        "name": "hold",
+        "en": "Hold",
+        "ar": "معلق"
     }
 ]

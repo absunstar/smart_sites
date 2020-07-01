@@ -34,7 +34,7 @@ app.controller("customer_opinion", function ($scope, $http, $timeout) {
 
 
 
-  $scope.deleteCustomerOpinion = function () {
+  $scope.deleteCustomerOpinion = function (c) {
     $scope.busy = true;
     $scope.error = '';
 
@@ -42,13 +42,13 @@ app.controller("customer_opinion", function ($scope, $http, $timeout) {
       method: "POST",
       url: "/api/customer_opinion/delete",
       data: {
-        id: $scope.customer_opinion.id
+        id: c.id
       }
     }).then(
       function (response) {
         $scope.busy = false;
         if (response.data.done) {
-          $scope.getCustomerOpinionList();
+          $scope.getCustomerOpinionList()
         } else {
           $scope.error = response.data.error;
         }

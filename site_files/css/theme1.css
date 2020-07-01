@@ -107,6 +107,12 @@ img {
     border-radius: 25px;
 }
 
+i-button :hover {
+
+    font: yellow;
+    color: yellow;
+}
+
 .table th {
     border-width: 5px;
     border-radius: 30px;
@@ -134,7 +140,10 @@ img {
 .font-f:hover {
     color: yellow;
     font-size: x-large;
+    transition: .3s ease;
 }
+
+
 
 
 /* .help {cursor: help;} */

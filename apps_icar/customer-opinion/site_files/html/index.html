@@ -11,14 +11,14 @@
         .bigLine {
             border-bottom: 4px solid blue;
             padding-bottom: 5px;
-            width :110px;
+            width: 110px;
             border-radius: 15px;
         }
 
         .line {
             border-bottom: 3px solid rgb(194, 194, 194);
             padding-bottom: 5px;
-            width :200px;
+            width: 200px;
             border-radius: 15px;
         }
 
@@ -64,11 +64,15 @@
                         <br>
                         <br>
                         <h1 class="blue bold center">##word.customer_opinion##</h1>
-                       
+
                         <div ng-repeat="c in list">
                             <br>
                             <br>
+                            <i-button type="delete default" x-permissions="customer_opinion_delete || customer_opinion_manage" ng-click="deleteCustomerOpinion(c)">
+                            </i-button>
+
                             <h2 class="darkGray ">{{c.full_name}}</h2>
+
                             <br>
                             <p class="brown">{{c.date | date : 'dd - MM - yyyy'}}</p>
 

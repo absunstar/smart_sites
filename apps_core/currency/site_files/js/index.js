@@ -106,6 +106,7 @@ app.controller("currency", function ($scope, $http, $timeout) {
       }
     )
   };
+
   $scope.displayDeleteCurrency = function (currency) {
     $scope.error = '';
     $scope.viewCurrency(currency);

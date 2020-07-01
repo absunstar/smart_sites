@@ -82,6 +82,105 @@ module.exports = function init(site) {
   })
 
 
+  site.post("/api/order_status/update", (req, res) => {
+    let response = {
+      done: false
+    }
+
+    if (!req.session.user) {
+      response.error = 'Please Login First'
+      res.json(response)
+      return
+    }
+
+    let order_status_doc = req.body
+
+    order_status_doc.edit_user_info = site.security.getUserFinger({
+      $req: req,
+      $res: res
+    })
+
+    if (order_status_doc.id) {
+      $order_status.edit({
+        where: {
+          id: order_status_doc.id
+        },
+        set: order_status_doc,
+        $req: req,
+        $res: res
+      }, err => {
+        if (!err) {
+          response.done = true
+        } else {
+          response.error = 'Code Already Exist'
+        }
+        res.json(response)
+      })
+    } else {
+      response.error = 'no id'
+      res.json(response)
+    }
+  })
+
+  site.post("/api/order_status/view", (req, res) => {
+    let response = {
+      done: false
+    }
+
+    if (!req.session.user) {
+      response.error = 'Please Login First'
+      res.json(response)
+      return
+    }
+
+    $order_status.findOne({
+      where: {
+        id: req.body.id
+      }
+    }, (err, doc) => {
+      if (!err) {
+        response.done = true
+        response.doc = doc
+      } else {
+        response.error = err.message
+      }
+      res.json(response)
+    })
+  })
+
+  site.post("/api/order_status/delete", (req, res) => {
+    let response = {
+      done: false
+    }
+
+    if (!req.session.user) {
+      response.error = 'Please Login First'
+      res.json(response)
+      return
+    }
+
+    let id = req.body.id
+
+    if (id) {
+      $order_status.delete({
+        id: id,
+        $req: req,
+        $res: res
+      }, (err, result) => {
+        if (!err) {
+          response.done = true
+        } else {
+          response.error = err.message
+        }
+        res.json(response)
+      })
+    } else {
+      response.error = 'no id'
+      res.json(response)
+    }
+  })
+
+
 
   site.post("/api/order_status/all", (req, res) => {
     let response = {

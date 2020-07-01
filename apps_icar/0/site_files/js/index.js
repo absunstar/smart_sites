@@ -28,6 +28,7 @@ app.controller("icar", function ($scope, $http, $timeout) {
         $scope.busy = false;
         if (response.data.done) {
           $scope.customer_opinion = {};
+          $scope.getCustomerData();
 
         } else {
           $scope.error = response.data.error;
@@ -63,6 +64,7 @@ app.controller("icar", function ($scope, $http, $timeout) {
         if (response.data.done) {
           $scope.code = response.data.doc.code;
           $scope.order_status = { place: 'personal' };
+          $scope.getCustomerData();
 
         } else {
           $scope.error = response.data.error;
@@ -177,6 +179,17 @@ app.controller("icar", function ($scope, $http, $timeout) {
     )
   };
 
+
+  $scope.getCustomerData = function () {
+    if ('##user.type##' == 'customer') {
+      $scope.customer_opinion.full_name = '##user.profile.name##'
+      $scope.order_status.customer_name = '##user.profile.name##'
+      $scope.order_status.mobile = '##user.profile.mobile##'
+      $scope.order_status.phone = '##user.profile.phone##'
+
+    }
+  };
+  $scope.getCustomerData();
   $scope.getGovList();
   $scope.getCArsTypeList();
 });

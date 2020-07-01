@@ -16,7 +16,7 @@
 </style>
 <div class="main-menu">
 
-    <div id="security_tabs" class="tabs">
+    <!-- <div id="security_tabs" class="tabs">
 
         <div class="tabs-header">
             <a class="tab-link" href="/notifications" x-permissions="nationalities_ui || nationalities_manage">
@@ -40,10 +40,15 @@
             </a>
 
         </div>
-    </div>
+    </div> -->
 
     <div id="general_tabs" class="tabs">
         <div class="tabs-header">
+
+            <a class="tab-link" href="/cars_type" x-permissions="cars_type_ui || cars_type_manage">
+                <img src="/images/cars_type.png">
+                <span> ##word.cars_types## </span>
+            </a>
 
             <a class="tab-link" href="/goves" x-permissions="goves_ui || goves_manage">
                 <img src="/images/gov.png">
@@ -58,11 +63,6 @@
             <a class="tab-link" href="/area" x-permissions="area_ui || area_manage">
                 <img src="/images/area.png">
                 <span> ##word.menu_area## </span>
-            </a>
-
-            <a class="tab-link" href="/cars_type" x-permissions="cars_type_ui || cars_type_manage">
-                <img src="/images/cars_type.png">
-                <span> ##word.cars_types## </span>
             </a>
 
             <!-- <a class="tab-link" href="/customers" x-permissions="customers_ui || customers_manage">
@@ -100,10 +100,16 @@
                 <span> ##word.report_orders_name##</span>
             </a>
 
+            <a class="tab-link" href="/security/users">
+                <img src="/images/users.png">
+                <span> ##word.menu_users## </span>
+            </a>
+
+            <!-- 
             <a class="tab-link" onclick="site.showTabs(event, '#security_tabs')">
                 <img src="/images/users.png">
                 <span> ##word.security_system##</span>
-            </a>
+            </a> -->
 
             <a class="tab-link" onclick="site.showTabs(event, '#general_tabs')">
                 <img src="/images/gov.png">

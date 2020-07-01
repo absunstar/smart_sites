@@ -1,0 +1,83 @@
+<div ng-hide="busy" class="row">
+    <div  class=" ">
+        <fieldset>
+            <legend> ##word.basic_information##</legend>
+            <div class="col9">
+                <table  class="table hover bold">
+                    <tr>
+                        <td class="title">##word.date##</td>
+                        <td class="center brown">{{report_orders.date  | date:'dd - MM - yyyy'}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.car_type##</td>
+                        <td class="center"> {{report_orders.car_type.name_##session.lang##}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.Vehicle_model##</td>
+                        <td class="center blue"> {{report_orders.Vehicle_model}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.vehicle_identifi##</td>
+                        <td class="center"> {{report_orders.vehicle_identifi}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.part_number##</td>
+                        <td class="center"> {{report_orders.part_number}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.customer_name##</td>
+                        <td class="center"> {{report_orders.customer_name}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.customers_gov##</td>
+                        <td class="center"> {{report_orders.gov.name}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.city##</td>
+                        <td class="center"> {{report_orders.city.name}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.area##</td>
+                        <td class="center"> {{report_orders.area.name}} </td>
+                    </tr>
+
+                    
+                    <tr>
+                        <td class="title">##word.detailed_address##</td>
+                        <td class="center"> {{report_orders.address}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.email##</td>
+                        <td class="center"> {{report_orders.email_optional}} </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.place_delivery##</td>
+                        <td ng-show="report_orders.place =='work'" class="center"> ##word.workshop_center## </td>
+                        <td ng-show="report_orders.place =='personal'" class="center"> ##word.personal## </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.status##</td>
+                        <td class="center red"> {{report_orders.status.##session.lang##}} </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col3">
+                <i-files view ng-model="report_orders.files"></i-files>
+
+            </div>
+
+        </fieldset>
+    </div>
+</div>

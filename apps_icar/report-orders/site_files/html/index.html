@@ -16,7 +16,17 @@
         <div class="row">
             <div class="row" ng-controller="report_orders" x-permissions="login">
 
-                <div x-import="report-orders/search_all_modal.html"></div>
+
+                <div x-permissions="report_orders_delete || report_orders_manage"
+                    x-import="report-orders/delete_modal.html">
+                </div>
+                <div x-permissions="report_orders_view || report_orders_manage"
+                    x-import="report-orders/view_modal.html"></div>
+                <div x-permissions="report_orders_delete || report_orders_manage"
+                    x-import="report-orders/search_all_modal.html">
+                </div>
+
+
                 <div class="row">
                     <h1 class="bold text-center"> ##word.report_orders_name## </h1>
                 </div>
@@ -24,7 +34,7 @@
                 <div class="top-actions">
 
                     <i-button type="search" x-permissions="report_orders_search || report_orders_manage"
-                        label="##word.search_all##" onclick="site.showModal('#reportInvoicesSearchModal')"></i-button>
+                        label="##word.search_all##" onclick="site.showModal('#reportOrdersSearchModal')"></i-button>
 
                     <span ng-show="busy">
                         <span class="sr-only">Loading...</span>
@@ -38,6 +48,7 @@
                     <table class="table loaded center hover bold" id="t1">
                         <tr>
                             <th> ##word.date## </th>
+                            <th> ##word.car_type## </th>
                             <th> ##word.Vehicle_model## </th>
                             <th> ##word.vehicle_identifi## </th>
                             <th> ##word.part_number## </th>
@@ -46,15 +57,40 @@
                             <th> ##word.actions## </th>
                         </tr>
 
-                        <tr ng-repeat="c in list | orderBy : '-id'">
+                        <tr class="pointer" ng-repeat="c in list | orderBy : '-id'">
 
-                            <td class="brown"> {{c.date  | date:'dd - MM - yyyy'}} </td>
-                            <td> {{c.Vehicle_model}} </td>
-                            <td> {{c.vehicle_identifi}} </td>
-                            <td> {{c.part_number}} </td>
-                            <td> {{c.customer_name}} </td>
-                            <td> {{c.status.##session.lang##}} </td>
-                            <td>  </td>
+                            <td class="brown" ng-click="displayDetailsReportOrdersList(c)">
+                                {{c.date  | date:'dd - MM - yyyy'}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_type.name_##session.lang##}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)" class="blue"> {{c.Vehicle_model}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.vehicle_identifi}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.part_number}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.customer_name}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)" class="red"> {{c.status.##session.lang##}}
+                            </td>
+                            <td>
+
+                                <i-button x-permissions="report_orders_edit || report_orders_manage"
+                                    ng-show="c.status.id == 1" label="##word.under_delivery##"
+                                    ng-click="c.status.id = 2 ; updateReportOrdersList(c)">
+                                </i-button>
+
+                                <i-button x-permissions="report_orders_edit || report_orders_manage"
+                                    ng-show="c.status.id == 2" label="##word.delivered##"
+                                    ng-click="c.status.id = 3 ; updateReportOrdersList(c)">
+                                </i-button>
+
+
+                                <i-button x-permissions="report_orders_edit || report_orders_manage"
+                                    ng-show="c.status.id == 3" label="##word.hold##"
+                                    ng-click="c.status.id = 1 ; updateReportOrdersList(c)">
+                                </i-button>
+
+
+                                <i-button x-permissions="report_orders_delete || report_orders_manage" type="delete"
+                                    label="##word.delete##" ng-click="displayDeleteReportOrdersList(c)"></i-button>
+
+                            </td>
 
                         </tr>
                     </table>
