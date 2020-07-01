@@ -54,7 +54,7 @@
                             <th> ##word.part_number## </th>
                             <th> ##word.customer_name## </th>
                             <th> ##word.status## </th>
-                            <th> ##word.actions## </th>
+                            <th class="not-print"> ##word.actions## </th>
                         </tr>
 
                         <tr class="pointer" ng-repeat="c in list | orderBy : '-id'">
@@ -68,7 +68,7 @@
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.customer_name}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)" class="red"> {{c.status.##session.lang##}}
                             </td>
-                            <td>
+                            <td class="not-print">
 
                                 <i-button x-permissions="report_orders_edit || report_orders_manage"
                                     ng-show="c.status.id == 1" label="##word.under_delivery##"

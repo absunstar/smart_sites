@@ -140,7 +140,7 @@ i-button :hover {
 .font-f:hover {
     color: yellow;
     font-size: x-large;
-    transition: .3s ease;
+    transition: .4s ease;
 }
 
 

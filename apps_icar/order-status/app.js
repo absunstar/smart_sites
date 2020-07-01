@@ -213,11 +213,58 @@ module.exports = function init(site) {
       delete where.date_to
     }
 
+    if (where.place == 'work') {
 
-    if (where['payment_method']) {
-      where['payment_method.id'] = where['payment_method'].id;
-      delete where['payment_method']
+      where['place'] = 'work'
+    } else if (where.place == 'personal') {
+
+      where['place'] = 'personal'
     }
+
+    if (where.phone) {
+
+      where['phone'] = where.phone;
+    }
+    if (where.mobile) {
+
+      where['mobile'] = where.mobile;
+    }
+
+    if (where.customer_name) {
+
+      where['customer_name'] = where.customer_name;
+    }
+
+    if (where['status']) {      
+      where['status.id'] = where['status'].id;
+      delete where['status']
+    }
+
+    if (where['car_type']) {
+      where['car_type.id'] = where['car_type'].id;
+      delete where['car_type']
+    }
+
+    if (where['status']) {
+      where['status.id'] = where['status'].id;
+      delete where['status']
+    }
+
+    if (where['gov']) {
+      where['gov.id'] = where['gov'].id;
+      delete where['gov']
+    }
+
+    if (where['city']) {
+      where['city.id'] = where['city'].id;
+      delete where['city']
+    }
+
+    if (where['area']) {
+      where['area.id'] = where['area'].id;
+      delete where['area']
+    }
+
 
     $order_status.findMany({
       select: req.body.select || {},

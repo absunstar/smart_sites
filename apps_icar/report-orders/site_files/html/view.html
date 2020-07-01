@@ -1,9 +1,9 @@
 <div ng-hide="busy" class="row">
-    <div  class=" ">
+    <div class=" ">
         <fieldset>
             <legend> ##word.basic_information##</legend>
             <div class="col9">
-                <table  class="table hover bold">
+                <table class="table hover bold" id="v1">
                     <tr>
                         <td class="title">##word.date##</td>
                         <td class="center brown">{{report_orders.date  | date:'dd - MM - yyyy'}} </td>
@@ -35,6 +35,27 @@
                     </tr>
 
                     <tr>
+                        <td class="title">##word.mobile##</td>
+                        <td class="center blue">
+                            <a ng-show="report_orders.mobile" href="tel:{{report_orders.mobile}}">
+                                {{report_orders.mobile}}
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.phone##</td>
+                        <td class="center">
+                            <a ng-show="report_orders.phone" href="tel:{{report_orders.phone}}">
+                                {{report_orders.phone}}
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+
+                    <tr>
                         <td class="title">##word.customers_gov##</td>
                         <td class="center"> {{report_orders.gov.name}} </td>
                     </tr>
@@ -49,7 +70,6 @@
                         <td class="center"> {{report_orders.area.name}} </td>
                     </tr>
 
-                    
                     <tr>
                         <td class="title">##word.detailed_address##</td>
                         <td class="center"> {{report_orders.address}} </td>
@@ -68,7 +88,7 @@
 
                     <tr>
                         <td class="title">##word.status##</td>
-                        <td class="center red"> {{report_orders.status.##session.lang##}} </td>
+                        <td class="center green"> {{report_orders.status.##session.lang##}} </td>
                     </tr>
                 </table>
             </div>

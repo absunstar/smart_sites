@@ -19,39 +19,59 @@
 
                         </div>
                         <div class="row">
+
+                            <i-list class="col3" label="##word.car_type##" ng-model="search.car_type"
+                                items="carsTypeList" display="name_##session.lang##"
+                                ng-search="_search.$car_type_search">
+                            </i-list>
+
+                            <i-list class="col3" label="##word.order_status##" ng-model="search.status"
+                                items="status_list" display="##session.lang##" ng-search="_search.$order_status_search">
+                            </i-list>
+
                             <i-control class="col3" label="##word.Vehicle_model##" ng-model="search.Vehicle_model">
                             </i-control>
-          
-                            <i-control class="col3" label="##word.vehicle_identifi##" ng-model="search.vehicle_identifi">
+
+                            <i-control class="col3" label="##word.vehicle_identifi##"
+                                ng-model="search.vehicle_identifi">
                             </i-control>
-          
+
                             <i-control class="col3" label="##word.part_number##" ng-model="search.part_number">
                             </i-control>
-          
+
                             <i-control class="col3" label="##word.customer_name##" ng-model="search.customer_name">
                             </i-control>
-          
+
                             <i-control class="col3" label="##word.phone##" ng-model="search.phone">
                             </i-control>
-          
-                            <i-list class="col3" label="##word.customers_gov##" ng-model="search.gov" items="govList" display="name"
-                              ng-change="getCityList(search.gov)" ng-search="_search.$govNameContact">
+
+                            <i-list class="col3" label="##word.customers_gov##" ng-model="search.gov" items="govList"
+                                display="name" ng-change="getCityList(search.gov)" ng-search="_search.$govNameContact">
                             </i-list>
-          
+
                             <i-list class="col3" label="##word.city##" ng-model="search.city" items="cityList"
-                              ng-change="getAreaList(search.city)" display="name"
-                              ng-search="_search.$search.$city_search">
+                                ng-change="getAreaList(search.city)" display="name"
+                                ng-search="_search.$search.$city_search">
                             </i-list>
-          
-                            <i-list class="col3" label="##word.area##" ng-model="search.area" items="areaList" display="name"
-                              ng-search="_search.$search.$area_search">
+
+                            <i-list class="col3" label="##word.area##" ng-model="search.area" items="areaList"
+                                display="name" ng-search="_search.$search.$area_search">
                             </i-list>
-          
+
                             <i-control class="col3" label="##word.detailed_address##" ng-model="search.address">
                             </i-control>
-          
+
                             <i-control class="col3" label="##word.email##" ng-model="search.email_optional">
                             </i-control>
+
+                            <div class="col1"></div>
+
+                            <i-radio v="r" class="col2" ng-model="search.place" ng-value="work" group="type"
+                                label="##word.workshop_center##"></i-radio>
+
+                            <i-radio v="r" class="col2" ng-model="search.place" group="type" ng-value="personal"
+                                label="##word.personal##">
+                            </i-radio>
                         </div>
                     </fieldset>
                 </form>

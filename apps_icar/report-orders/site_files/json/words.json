@@ -18,5 +18,10 @@
         "name": "hold",
         "en": "Hold",
         "ar": "معلق"
+    },
+    {
+        "name": "order_status",
+        "en": "Order Status",
+        "ar": "حالة الطلب"
     }
 ]
