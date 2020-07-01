@@ -16,14 +16,12 @@
             text-align: center;
             line-height: 0.8;
             width: 700px;
-            height: 400px;
+            height: auto;
             margin: 10px;
             padding: 17px;
             box-shadow: 1px 3px 5px blue;
 
         }
-
-
 
         .btn.saving {
             width: 500px;
@@ -71,6 +69,7 @@
                         <i-button type="fa fa-eye saving" label="##word.follow_up##"
                             ng-click="getOrderStatusList(reference_number)">
                         </i-button>
+                        <h2 class="error"> {{error}} </h2>
 
                     </div>
 
@@ -84,6 +83,7 @@
                             <table class="table hover bold loaded" id="t1">
                                 <tr>
                                     <th>##word.reference_number##</th>
+                                    <th>##word.car_type##</th>
                                     <th>##word.Vehicle_model##</th>
                                     <th>##word.vehicle_identifi##</th>
                                     <th>##word.part_number##</th>
@@ -93,6 +93,7 @@
                                 <tr ng-repeat="c in list">
 
                                     <td class="center bold blue">{{c.code}}</td>
+                                    <td class="center bold ">{{c.car_type.name_##session.lang##}}</td>
                                     <td class="center indigo">{{c.Vehicle_model}}</td>
                                     <td class="center indigo">{{c.vehicle_identifi}}</td>
                                     <td class="center indigo">{{c.part_number}}</td>

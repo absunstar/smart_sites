@@ -2,7 +2,7 @@ app.controller("icar", function ($scope, $http, $timeout) {
   $scope._search = {};
 
   $scope.customer_opinion = {};
-  $scope.order_status = { place: 'personal' };
+  $scope.order_status = {};
   $scope.code = '';
 
 
@@ -63,7 +63,6 @@ app.controller("icar", function ($scope, $http, $timeout) {
         $scope.busy = false;
         if (response.data.done) {
           $scope.code = response.data.doc.code;
-          $scope.order_status = { place: 'personal' };
           $scope.getCustomerData();
 
         } else {
@@ -181,11 +180,18 @@ app.controller("icar", function ($scope, $http, $timeout) {
 
 
   $scope.getCustomerData = function () {
+
+    $scope.order_status = { 
+      place: 'personal' ,
+      image_url : '/images/drive_card.png'
+  };
+
     if ('##user.type##' == 'customer') {
       $scope.customer_opinion.full_name = '##user.profile.name##'
       $scope.order_status.customer_name = '##user.profile.name##'
       $scope.order_status.mobile = '##user.profile.mobile##'
       $scope.order_status.phone = '##user.profile.phone##'
+
 
     }
   };

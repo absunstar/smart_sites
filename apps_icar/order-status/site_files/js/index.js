@@ -3,7 +3,6 @@ app.controller("order_status", function ($scope, $http, $timeout) {
 
   $scope.order_status = {};
 
-
   $scope.addOrderStatus = function () {
     $scope.error = '';
     const v = site.validated('#orderStatusAddModal');
@@ -52,7 +51,9 @@ app.controller("order_status", function ($scope, $http, $timeout) {
           $scope.count = response.data.count;
           $scope.search = {};
 
-        }
+        } else {
+          $scope.error = '##word.err_order##';
+        } 
       },
       function (err) {
         $scope.busy = false;

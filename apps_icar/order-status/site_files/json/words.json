@@ -13,5 +13,10 @@
         "name": "follow_up",
         "en": "Follow up",
         "ar": "متابعة"
+    },
+    {
+        "name": "err_order",
+        "en": "Sorry, there is no order for this number",
+        "ar": "عفوا , لا يوجد طلب بهذا الرقم"
     }
 ]
