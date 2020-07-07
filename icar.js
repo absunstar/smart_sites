@@ -1,7 +1,7 @@
 const site = require('isite')({
     port: [80 , 33001],
     lang: 'ar',
-    version : '1.0.2',
+    version : '1.0.3',
     name: 'icar',
     theme: 'theme_paper',
     https: {
@@ -42,12 +42,12 @@ site.words.add({
 })
 
 site.loadLocalApp('client-side')
+site.importApps(__dirname + '/apps_icar')
 site.importApp(__dirname + '/apps_private/security')
 site.importApp(__dirname + '/apps_private/ui-print')
 site.importApp(__dirname + '/apps_private/ui-help')
 
 site.importApps(__dirname + '/apps_core')
-site.importApps(__dirname + '/apps_icar')
 site.addFeature('icar')
 
 

@@ -235,6 +235,10 @@ module.exports = function init(site) {
       where['customer_name'] = where.customer_name;
     }
 
+    if (where['code']) {      
+      where['code'] = where['code'];
+    }
+
     if (where['status']) {      
       where['status.id'] = where['status'].id;
       delete where['status']
@@ -243,6 +247,11 @@ module.exports = function init(site) {
     if (where['car_type']) {
       where['car_type.id'] = where['car_type'].id;
       delete where['car_type']
+    }
+
+    if (where['car_name']) {
+      where['car_name.id'] = where['car_name'].id;
+      delete where['car_name']
     }
 
     if (where['status']) {

@@ -1,0 +1,26 @@
+<div class="form">
+    <div id="carsNameAddModal">
+        <fieldset>
+            <legend> ##word.cars_name_informations## </legend>
+            <div class="row">
+                <div class="col9">
+                    <div class="row">
+
+                        <i-list v="r" class="col6" label="##word.car_type##" ng-model="cars_name.car_type"
+                            items="carsTypeList" display="name_ar" display2="name_en" space=" - "
+                            ng-search="_search.$car_type_search">
+                        </i-list>
+                    </div>
+                    <i-control v="r" class="col4" label="##word.car_name_ar##" ng-model="cars_name.name_ar"></i-control>
+                    <i-control v="r" class="col4" label="##word.car_name_en##" ng-model="cars_name.name_en"></i-control>
+                    <div class="col2"></div>
+                    <i-checkbox class="col2" label="##word.active##" ng-model="cars_name.active"></i-checkbox>
+                </div>
+
+                <div class="col3">
+                    <i-image category="cars_name" ng-model="cars_name.image_url"> </i-image>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

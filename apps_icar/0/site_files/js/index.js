@@ -50,6 +50,11 @@ app.controller("icar", function ($scope, $http, $timeout) {
       return;
     }
 
+    if (!$scope.order_status.vehicle_identifi && !$scope.order_status.image_url) {
+      $scope.error = "##word.err_identifi_img##";
+      return;
+    }
+
     $scope.order_status.date = new Date();
     $scope.order_status.status = { id: 1, ar: 'معلق', en: 'Hold' };
 
@@ -76,7 +81,7 @@ app.controller("icar", function ($scope, $http, $timeout) {
   };
 
 
-  $scope.getGovList = function (where) {
+   $scope.getGovList = function (where) {
     $scope.busy = true;
     $http({
       method: "POST",
@@ -99,7 +104,7 @@ app.controller("icar", function ($scope, $http, $timeout) {
         $scope.error = err;
       }
     )
-  };
+  }; 
 
   $scope.getCityList = function (gov) {
     $scope.busy = true;
@@ -178,12 +183,38 @@ app.controller("icar", function ($scope, $http, $timeout) {
     )
   };
 
+  $scope.getCArsNameList = function (car_type) {
+    $scope.busy = true;
+    $http({
+      method: "POST",
+      url: "/api/cars_name/all",
+      data: {
+        where: {
+          'car_type.id': car_type.id,
+          active: true
+        },
+        select: { id: 1, name_ar: 1, name_en: 1 }
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done && response.data.list.length > 0) {
+          $scope.carsNameList = response.data.list;
+        }
+      },
+      function (err) {
+        $scope.busy = false;
+        $scope.error = err;
+      }
+    )
+  };
+
+
 
   $scope.getCustomerData = function () {
 
     $scope.order_status = { 
       place: 'personal' ,
-      image_url : '/images/drive_card.png'
   };
 
     if ('##user.type##' == 'customer') {

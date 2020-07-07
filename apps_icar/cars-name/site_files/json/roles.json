@@ -1,0 +1,7 @@
+[{
+    "module_name" : "public" ,
+    "name": "cars_name_admin",
+    "en": "Cars Name Admin",
+    "ar": "إدارة أسماء السيارات",
+    "permissions": ["cars_name_manage"]
+}]

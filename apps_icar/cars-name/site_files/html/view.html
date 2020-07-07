@@ -1,0 +1,44 @@
+<div ng-hide="busy" id="v1">
+    <div class="form">
+        <div id="customersGroupViewModal">
+            <fieldset>
+                <legend> ##word.cars_name_informations## </legend>
+                <div class="row">
+                    <div class="col9">
+                        <table class="table hover bold">
+
+                            <tr>
+                                <td class="title"> ##word.car_type## </td>
+                                <td class="center blue"> {{cars_name.car_type.name_ar}} - {{cars_name.car_type.name_en}} </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="title"> ##word.car_name_ar## </td>
+                                <td class="center"> {{cars_name.name_ar}} </td>
+                            </tr>
+
+                            <tr>
+                                <td class="title"> ##word.car_name_en## </td>
+                                <td class="center"> {{cars_name.name_en}} </td>
+                            </tr>
+
+                            <tr>
+                                <td class="title"> ##word.active## </td>
+                                <td ng-show="cars_name.active == true" class="center green"> ##word.active## </td>
+                                <td ng-show="cars_name.active == false" class="center red"> ##word.not_active## </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col3">
+                        <i-image class="not-print" view ng-model="cars_name.image_url"> </i-image>
+                    </div>
+
+
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div x-import="cars-name/action_info.html"></div>

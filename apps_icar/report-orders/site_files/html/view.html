@@ -10,8 +10,20 @@
                     </tr>
 
                     <tr>
+                        <td class="title">##word.customers_reference_number##</td>
+                        <td class="center bold blue"> {{report_orders.code}} </td>
+                    </tr>
+
+                    <tr>
                         <td class="title">##word.car_type##</td>
-                        <td class="center"> {{report_orders.car_type.name_##session.lang##}} </td>
+                        <td class="center"> {{report_orders.car_type.name_ar}} - {{report_orders.car_type.name_en}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="title">##word.car_name##</td>
+                        <td class="center"> {{report_orders.car_name.name_ar}} - {{report_orders.car_name.name_en}}
+                        </td>
                     </tr>
 
                     <tr>
@@ -65,10 +77,10 @@
                         <td class="center"> {{report_orders.city.name}} </td>
                     </tr>
 
-                    <tr>
+                    <!-- <tr>
                         <td class="title">##word.area##</td>
                         <td class="center"> {{report_orders.area.name}} </td>
-                    </tr>
+                    </tr> -->
 
                     <tr>
                         <td class="title">##word.detailed_address##</td>

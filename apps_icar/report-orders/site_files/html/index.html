@@ -48,7 +48,9 @@
                     <table class="table loaded center hover bold" id="t1">
                         <tr>
                             <th> ##word.date## </th>
+                            <th> ##word.customers_reference_number## </th>
                             <th> ##word.car_type## </th>
+                            <th> ##word.car_name## </th>
                             <th> ##word.Vehicle_model## </th>
                             <th> ##word.vehicle_identifi## </th>
                             <th> ##word.part_number## </th>
@@ -61,7 +63,10 @@
 
                             <td class="brown" ng-click="displayDetailsReportOrdersList(c)">
                                 {{c.date  | date:'dd - MM - yyyy'}} </td>
-                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_type.name_##session.lang##}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)" class="blue bold"> {{c.code}} </td>
+
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_type.name_ar}} - {{c.car_type.name_en}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_name.name_ar}} - {{c.car_name.name_en}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)" class="blue"> {{c.Vehicle_model}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.vehicle_identifi}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.part_number}} </td>

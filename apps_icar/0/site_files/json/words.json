@@ -35,6 +35,16 @@
         "ar": "شخصي"
     },
     {
+        "name": "err_identifi_img",
+        "en": "You must enter the frame number or download the form",
+        "ar": "يجب إدخال رقم الهيكل أو تحميل صورة الإستمارة"
+    },
+    {
+        "name": "upload_form",
+        "en": "upload the form image (optional)",
+        "ar": "رفع صورة الإستمارة (إختياري)"
+    },
+    {
         "name": "place_delivery",
         "en": "Place of delivery",
         "ar": "مكان التوصيل"
@@ -233,5 +243,105 @@
         "name": "companies_customer_service",
         "en": "Customer Services",
         "ar": "خدمة العملاء"
+    },
+    {
+        "name": "menu_goves",
+        "en": "Cities Menu",
+        "ar": "قائمة المدن"
+    },
+    {
+        "name": "menu_goves_tag",
+        "en": " Cities Manegment",
+        "ar": "إدارة المدن"
+    },
+    {
+        "name": "goves",
+        "en": "Cities",
+        "ar": "المدينة"
+    },
+    {
+        "name": "gov",
+        "en": "City",
+        "ar": "المدينة"
+    },
+    {
+        "name": "goves_new",
+        "en": "New City",
+        "ar": "مدينة جديد"
+    },
+    {
+        "name": "goves_add",
+        "en": "Add City",
+        "ar": "إضافة مدينة "
+    },
+    {
+        "name": "goves_edit",
+        "en": "Edit City",
+        "ar": "تعديل مدينة "
+    },
+    {
+        "name": "goves_details",
+        "en": "City Details",
+        "ar": "تفاصيل المدينة "
+    },
+    {
+        "name": "goves_delete",
+        "en": "Delete City",
+        "ar": "حذف مدينة "
+    },
+    {
+        "name": "goves_name",
+        "en": "City Name",
+        "ar": "إسم المدينة "
+    },
+    {
+        "name": "city",
+        "en": "Area",
+        "ar": "المنطقة"
+    },
+    {
+        "name": "cities",
+        "en": "Areas",
+        "ar": "المناطق"
+    },
+    {
+        "name": "city_new",
+        "en": "New Area",
+        "ar": "منطقة  جديدة"
+    },
+    {
+        "name": "city_add",
+        "en": "Add Area",
+        "ar": "إضافة منطقة "
+    },
+    {
+        "name": "city_edit",
+        "en": "Edit Area",
+        "ar": "تعديل منطقة "
+    },
+    {
+        "name": "city_details",
+        "en": "Area Details",
+        "ar": "تفاصيل المنطقة "
+    },
+    {
+        "name": "city_delete",
+        "en": "Delete Area",
+        "ar": "حذف منطقة "
+    },
+    {
+        "name": "city_name",
+        "en": "Area Name",
+        "ar": "إسم المنطقة "
+    },
+    {
+        "name": "menu_city",
+        "en": "Areas Menu",
+        "ar": "قائمة المناطق"
+    },
+    {
+        "name": "menu_city_tag",
+        "en": "Areas Manegment",
+        "ar": "إدارة المناطق"
     }
 ]

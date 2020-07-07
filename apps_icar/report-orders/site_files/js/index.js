@@ -209,7 +209,7 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
     )
   };
 
-  $scope.getAreaList = function (city) {
+ /*  $scope.getAreaList = function (city) {
     $scope.busy = true;
     $http({
       method: "POST",
@@ -233,7 +233,7 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
       }
     )
   };
-
+ */
   $scope.getCArsTypeList = function (where) {
     $scope.busy = true;
     $http({
@@ -251,6 +251,32 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
         if (response.data.done && response.data.list.length > 0) {
           $scope.carsTypeList = response.data.list;
 
+        }
+      },
+      function (err) {
+        $scope.busy = false;
+        $scope.error = err;
+      }
+    )
+  };
+
+  $scope.getCArsNameList = function (car_type) {
+    $scope.busy = true;
+    $http({
+      method: "POST",
+      url: "/api/cars_name/all",
+      data: {
+        where: {
+          'car_type.id': car_type.id,
+          active: true
+        },
+        select: { id: 1, name_ar: 1, name_en: 1 }
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done && response.data.list.length > 0) {
+          $scope.carsNameList = response.data.list;
         }
       },
       function (err) {
