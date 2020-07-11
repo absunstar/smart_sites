@@ -56,10 +56,10 @@ module.exports = function init(site) {
     order_status_doc.$req = req
     order_status_doc.$res = res
 
-    // order_status_doc.add_user_info = site.security.getUserFinger({
-    //   $req: req,
-    //   $res: res
-    // })
+    order_status_doc.add_user_info = site.security.getUserFinger({
+      $req: req,
+      $res: res
+    })
 
     if (typeof order_status_doc.active === 'undefined') {
       order_status_doc.active = true
@@ -87,11 +87,11 @@ module.exports = function init(site) {
       done: false
     }
 
-    if (!req.session.user) {
-      response.error = 'Please Login First'
-      res.json(response)
-      return
-    }
+    // if (!req.session.user) {
+    //   response.error = 'Please Login First'
+    //   res.json(response)
+    //   return
+    // }
 
     let order_status_doc = req.body
 
@@ -188,6 +188,16 @@ module.exports = function init(site) {
     }
 
     let where = req.body.where || {}
+    if (where.under_delivery || where.under_pricing || where.delivered || where.cancelled_order) {
+
+      where['$or'] = [{ 'status.id': where.under_delivery }, { 'status.id': where.under_pricing }, { 'status.id': where.delivered },{ 'status.id': where.cancelled_order }]
+      delete where.under_delivery
+      delete where.under_pricing
+      delete where.delivered
+      delete where.cancelled_order
+    }
+
+
 
     if (where['code']) {
       where['code'] = where['code'];
@@ -235,14 +245,11 @@ module.exports = function init(site) {
       where['customer_name'] = where.customer_name;
     }
 
-    if (where['code']) {      
+    if (where['code']) {
       where['code'] = where['code'];
     }
 
-    if (where['status']) {      
-      where['status.id'] = where['status'].id;
-      delete where['status']
-    }
+
 
     if (where['car_type']) {
       where['car_type.id'] = where['car_type'].id;
@@ -254,10 +261,7 @@ module.exports = function init(site) {
       delete where['car_name']
     }
 
-    if (where['status']) {
-      where['status.id'] = where['status'].id;
-      delete where['status']
-    }
+
 
     if (where['gov']) {
       where['gov.id'] = where['gov'].id;

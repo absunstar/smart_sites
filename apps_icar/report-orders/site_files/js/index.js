@@ -2,18 +2,38 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
   $scope._search = {};
 
   $scope.report_orders = {};
+  $scope.messages = '';
+  $scope.statusId = {
+    under_pricing: true,
+    under_delivery: true,
+    delivered: false,
+    cancelled_order: false
+  };
 
   $scope.status_list = [
-    { id: 1, ar: 'معلق', en: 'hold' },
-    { id: 2, en: 'Under Delivery', ar: 'قيد التوصيل' },
-    { id: 3, en: 'Delivered', ar: 'تم التوصيل' },
+    { id: 1, en: 'Under pricing', ar: 'قيد التسعير' },
+    { id: 2, en: 'Under delivery', ar: 'قيد التوصيل' },
+    { id: 3, en: 'Sent delivered handed', ar: 'تم التسليم' },
   ];
-
 
   $scope.getReportOrdersList = function (where) {
     $scope.busy = true;
     $scope.list = [];
     $scope.count = 0;
+
+    if (!where) where = {};
+
+    if ($scope.statusId.under_pricing) where.under_pricing = 1;
+
+    if ($scope.statusId.under_delivery) where.under_delivery = 2;
+
+    if ($scope.statusId.delivered) where.delivered = 3;
+
+    if ($scope.statusId.cancelled_order) where.cancelled_order = 4;
+
+    $scope.statusId.cancelled_order = false;
+
+
     $http({
       method: "POST",
       url: "/api/order_status/all",
@@ -41,24 +61,17 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
 
 
     if (c.status.id == 1) {
-      c.status = {
-        id: 1,
-        en: 'hold',
-        ar: 'معلق'
-      }
+      c.status = { id: 1, en: 'Under pricing', ar: 'قيد التسعير' }
 
     } else if (c.status.id == 2) {
-      c.status = {
-        id: 2,
-        en: 'Under Delivery',
-        ar: 'قيد التوصيل'
-      }
+      c.status = { id: 2, en: 'Under delivery', ar: 'قيد التوصيل' }
+
     } else if (c.status.id == 3) {
-      c.status = {
-        id: 3,
-        en: 'Delivered',
-        ar: 'تم التوصيل'
-      }
+      c.status = { id: 3, en: 'Sent delivered handed', ar: 'تم التسليم' }
+
+    } else if (c.status.id == 4) {
+      c.status = { id: 4, en: 'Cancelled', ar: 'ملغي' }
+
     }
 
 
@@ -83,6 +96,53 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
     )
   };
 
+
+  $scope.sendMessage = function (ev, report_orders) {
+    $scope.error = '';
+
+    if (ev.which !== 13) {
+      return;
+    }
+
+    report_orders.messages.push({ type: 'admin', msg: $scope.message, date: new Date() });
+    $scope.message = '';
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: report_orders
+    }).then(
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+  $scope.deleteMessage = function (report_orders) {
+    $scope.error = '';
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: report_orders
+    }).then(
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+
+
+  /*   $scope.sendMessage = function (ev, report_orders) {
+      if (ev.which !== 13) {
+        return;
+      }
+  
+      report_orders.messages.push({ type: 'admin', msg: $scope.message, date: new Date() });
+      $scope.message = '';
+    };
+   */
 
   $scope.displayDetailsReportOrdersList = function (report_orders) {
     $scope.error = '';
@@ -209,31 +269,31 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
     )
   };
 
- /*  $scope.getAreaList = function (city) {
-    $scope.busy = true;
-    $http({
-      method: "POST",
-      url: "/api/area/all",
-      data: {
-        where: {
-          'city.id': city.id,
-          active: true
-        },
-      }
-    }).then(
-      function (response) {
-        $scope.busy = false;
-        if (response.data.done && response.data.list.length > 0) {
-          $scope.areaList = response.data.list;
-        }
-      },
-      function (err) {
-        $scope.busy = false;
-        $scope.error = err;
-      }
-    )
-  };
- */
+  /*  $scope.getAreaList = function (city) {
+     $scope.busy = true;
+     $http({
+       method: "POST",
+       url: "/api/area/all",
+       data: {
+         where: {
+           'city.id': city.id,
+           active: true
+         },
+       }
+     }).then(
+       function (response) {
+         $scope.busy = false;
+         if (response.data.done && response.data.list.length > 0) {
+           $scope.areaList = response.data.list;
+         }
+       },
+       function (err) {
+         $scope.busy = false;
+         $scope.error = err;
+       }
+     )
+   };
+  */
   $scope.getCArsTypeList = function (where) {
     $scope.busy = true;
     $http({

@@ -2,6 +2,8 @@ app.controller("order_status", function ($scope, $http, $timeout) {
   $scope._search = {};
 
   $scope.order_status = {};
+  $scope.message = '';
+  $scope.reference_number = '';
 
   $scope.addOrderStatus = function () {
     $scope.error = '';
@@ -30,6 +32,119 @@ app.controller("order_status", function ($scope, $http, $timeout) {
     )
   };
 
+  $scope.acceptMessage = function (c) {
+    $scope.error = '';
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: c
+    }).then(
+      function (response) {
+        if (response.data.done) {
+
+          site.hideModal('#orderStatusMessageModal');
+
+        } else {
+          $scope.error = 'Please Login First';
+        }
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+
+  /*   $scope.viewMessages = function (order_status) {
+      $scope.error = '';
+      $scope.order_status = order_status;
+      site.showModal('#orderStatusMessageModal')
+    }; */
+
+  $scope.sendMessage = function (ev, order_status) {
+    if (ev.which !== 13) {
+      return;
+    }
+
+    order_status.messages.push({ type: 'customer', msg: $scope.message, date: new Date() });
+    $scope.message = '';
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: order_status
+    }).then(
+      function (err) {
+        console.log(err);
+      }
+    )
+  };
+
+  $scope.acceptOrder = function (order_status) {
+
+    if (order_status.convirm == 'cancel' && !order_status.cancel) {
+      $scope.error = "##word.reason_cancel_order##";
+      return;
+    }
+    order_status.accept_buy = true;
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: order_status
+    }).then(
+      function (err) {
+        console.log(err);
+      }
+    )
+
+  };
+
+
+  $scope.acceptEvaluation = function (order_status) {
+
+
+    order_status.accept_evaluation = true;
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/update",
+      data: order_status
+    }).then(
+      function (response) {
+        if (response.data.done) {
+          if (order_status.evaluation && order_status.evaluation.vote) {
+            if (order_status.evaluation.vote == 'satisfied' || order_status.evaluation.vote == 'acceptable') {
+
+              let obj = {
+                date: new Date(),
+                vote: order_status.evaluation.vote,
+                full_name: order_status.customer_name,
+                your_opinion: order_status.evaluation.your_opinion
+              };
+
+              $http({
+                method: "POST",
+                url: "/api/customer_opinion/add",
+                data: obj
+              })
+
+            }
+          }
+
+
+        } else {
+          $scope.error = 'Please Login First';
+        }
+      },
+      function (err) {
+        console.log(err);
+      }
+    )
+
+
+  };
 
 
   $scope.getOrderStatusList = function (where) {
@@ -53,7 +168,7 @@ app.controller("order_status", function ($scope, $http, $timeout) {
 
         } else {
           $scope.error = '##word.err_order##';
-        } 
+        }
       },
       function (err) {
         $scope.busy = false;
@@ -63,6 +178,15 @@ app.controller("order_status", function ($scope, $http, $timeout) {
     )
 
   };
+
+
+  $scope.displayDetailsReportOrdersList = function (report_orders) {
+    $scope.error = '';
+    $scope.viewReportOrdersList(report_orders);
+    $scope.report_orders = {};
+    site.showModal('#reportOrdersViewModal');
+  };
+
 
 
 });

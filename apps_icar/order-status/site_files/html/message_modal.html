@@ -1,0 +1,89 @@
+<style>
+    .post {
+        border: 1px solid rgb(18, 18, 211);
+        background: #fff;
+        color: #000;
+        width: 500px;
+        height: auto;
+        margin: 10px;
+        padding: 17px;
+    }
+
+   
+</style>
+
+
+<div id="orderStatusMessageModal" class="modal small">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>
+                ##word.messages_view##
+                <i class="fa fa-file"></i>
+            </h2>
+        </div>
+
+        <div class="modal-body">
+            <form>
+                <div class="row">
+                    <fieldset>
+                        <legend>##word.order_message##</legend>
+
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col1"></div>
+                            <div class="col10 box-shadow post">
+
+                                <div class="row">
+
+                                    <div ng-repeat="c in order_status.messages">
+
+                                        <h3 class="bold" ng-class="{
+                                            msg_admin : c.type == 'admin',
+                                            msg_user : c.type == 'customer'
+                                        }">{{c.msg}}</h3>
+
+
+                                        <h5 class="brown" ng-class="{
+                                            msg_right : c.type == 'admin',
+                                            msg_left : c.type == 'customer',
+                                        }">{{c.date | date : 'hh:mm | dd - MM - yyyy'}}</h5>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <br>
+
+
+                        <div class="row">
+                            <div class="col3"></div>
+                            <i-textarea class="col6" label="##word.wright_msg##" ng-keydown="sendMessage($event, order_status)" ng-model="message">
+                            </i-textarea>
+                        </div>
+                  
+
+
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+
+        <h2 class="error"> {{error}} </h2>
+
+        <div class="modal-footer center">
+
+            <i-button type="close" label="##word.close##" onclick="site.hideModal('#orderStatusMessageModal')">
+            </i-button>
+
+        </div>
+    </div>
+
+</div>

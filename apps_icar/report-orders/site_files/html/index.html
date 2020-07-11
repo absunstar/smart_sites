@@ -35,6 +35,9 @@
 
                     <i-button type="search" x-permissions="report_orders_search || report_orders_manage"
                         label="##word.search_all##" onclick="site.showModal('#reportOrdersSearchModal')"></i-button>
+                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_pricing##" ng-model="statusId.under_pricing"></i-checkbox>
+                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_delivery##" ng-model="statusId.under_delivery"></i-checkbox>
+                    <i-checkbox ng-click="getReportOrdersList()" label="##word.delivered##" ng-model="statusId.delivered"></i-checkbox>
 
                     <span ng-show="busy">
                         <span class="sr-only">Loading...</span>
@@ -65,8 +68,10 @@
                                 {{c.date  | date:'dd - MM - yyyy'}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)" class="blue bold"> {{c.code}} </td>
 
-                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_type.name_ar}} - {{c.car_type.name_en}} </td>
-                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_name.name_ar}} - {{c.car_name.name_en}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_type.name_ar}} -
+                                {{c.car_type.name_en}} </td>
+                            <td ng-click="displayDetailsReportOrdersList(c)"> {{c.car_name.name_ar}} -
+                                {{c.car_name.name_en}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)" class="blue"> {{c.Vehicle_model}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.vehicle_identifi}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.part_number}} </td>
@@ -87,9 +92,11 @@
 
 
                                 <i-button x-permissions="report_orders_edit || report_orders_manage"
-                                    ng-show="c.status.id == 3" label="##word.hold##"
+                                    ng-show="c.status.id == 3" label="##word.under_pricing##"
                                     ng-click="c.status.id = 1 ; updateReportOrdersList(c)">
                                 </i-button>
+
+                                <!-- <i-button type="view" label="##word.messages##" onclick="site.showModal('#messageModal')" ></i-button> -->
 
 
                                 <i-button x-permissions="report_orders_delete || report_orders_manage" type="delete"

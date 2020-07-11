@@ -15,6 +15,21 @@
         "ar": "المنطقة"
     },
     {
+        "name": "send",
+        "en": "Send",
+        "ar": "ارسال"
+    },
+    {
+        "name": "wright_msg",
+        "en": "Wright Msg",
+        "ar": "كتابة رسالة"
+    },
+    {
+        "name": "messages_view",
+        "en": "Messages View",
+        "ar": "عرض الرسائل"
+    },
+    {
         "name": "register_data",
         "en": "Register Data",
         "ar": "بيانات التسجيل"
@@ -78,6 +93,11 @@
         "name": "order_status",
         "en": "Order Status",
         "ar": "حالة الطلب"
+    },
+    {
+        "name": "request_piece",
+        "en": "Request a piece",
+        "ar": "طلب قطعة"
     },
     {
         "name": "overdraft_not_active",

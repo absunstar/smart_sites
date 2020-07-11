@@ -33,9 +33,9 @@
                                 ng-search="_search.$car_name_search">
                             </i-list>
 
-                            <i-list class="col3" label="##word.order_status##" ng-model="search.status"
+                            <!-- <i-list class="col3" label="##word.order_status##" ng-model="search.status"
                                 items="status_list" display="##session.lang##" ng-search="_search.$order_status_search">
-                            </i-list>
+                            </i-list> -->
 
                             <i-control class="col3" label="##word.Vehicle_model##" ng-model="search.Vehicle_model">
                             </i-control>
@@ -53,7 +53,7 @@
                             <i-control class="col3" label="##word.phone##" ng-model="search.phone">
                             </i-control>
 
-                            <i-list class="col3" label="##word.customers_gov##" ng-model="search.gov" items="govList"
+                            <i-list class="col3" label="##word.gov##" ng-model="search.gov" items="govList"
                                 display="name" ng-change="getCityList(search.gov)" ng-search="_search.$govNameContact">
                             </i-list>
 
@@ -71,14 +71,21 @@
                             <i-control class="col3" label="##word.email##" ng-model="search.email_optional">
                             </i-control>
 
+                        </div>
+
+                        <div class="row">
+                            <div class="col4">
+
+                                <i-radio v="r" ng-model="search.place" ng-value="work" group="type"
+                                    label="##word.workshop_center##"></i-radio>
+
+                                <i-radio v="r" ng-model="search.place" group="type" ng-value="personal"
+                                    label="##word.personal##">
+                                </i-radio>
+                            </div>
                             <div class="col1"></div>
+                            <i-checkbox label="##word.cancelled##" ng-model="statusId.cancelled_order"></i-checkbox>
 
-                            <i-radio v="r" class="col2" ng-model="search.place" ng-value="work" group="type"
-                                label="##word.workshop_center##"></i-radio>
-
-                            <i-radio v="r" class="col2" ng-model="search.place" group="type" ng-value="personal"
-                                label="##word.personal##">
-                            </i-radio>
                         </div>
                     </fieldset>
                 </form>

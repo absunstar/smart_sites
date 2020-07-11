@@ -56,7 +56,6 @@
                 <br>
                 <br>
 
-
                 <div class="row">
                     <div class="col4"></div>
                     <div class="col4 post">
@@ -76,11 +75,13 @@
                             <br>
                             <p class="brown">{{c.date | date : 'dd - MM - yyyy'}}</p>
 
-                            <div class=" bigLine"></div>
+                            <div class="bigLine"></div>
+                            <br>
+                            <h3 class="bold" ng-show="c.vote == 'satisfied'">##word.satisfied##</h3>
+                            <h3 class="bold" ng-show="c.vote == 'acceptable'">##word.acceptable##</h3>
 
                             <br>
                             <p class="darkGray bold center">{{c.your_opinion}}</p>
-                            <br>
                             <br>
                             <div class="center line"></div>
                         </div>

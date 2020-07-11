@@ -1,9 +1,23 @@
+<style>
+    .post {
+        border: 1px solid rgb(18, 18, 211);
+        background: #fff;
+        color: #000;
+        width: 500px;
+        height: auto;
+        margin: 10px;
+        padding: 17px;
+    }
+</style>
+
+
+
 <div id="reportOrdersViewModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
             <span class="close">&times;</span>
             <h2>
-                ##word.currency_details##
+                ##word.order_detailes##
                 <i class="fa fa-file"></i>
             </h2>
         </div>
@@ -21,4 +35,90 @@
             <i-button type="close" label="##word.close##" onclick="site.hideModal('#reportOrdersViewModal')"></i-button>
         </div>
     </div>
+</div>
+
+
+<div id="messageModal" class="modal small">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>
+                ##word.messages_view##
+                <i class="fa fa-file"></i>
+            </h2>
+        </div>
+
+        <div class="modal-body">
+            <form>
+                <div class="row">
+                    <fieldset>
+                        <legend>##word.order_message##</legend>
+
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col1"></div>
+                            <div class="col10 box-shadow post" ng-show="report_orders.messages.length > 0">
+
+                                <div class="row">
+
+                                    <div ng-repeat="c in report_orders.messages">
+                                        <h3 class="bold" ng-class="{
+                                                msg_admin : c.type == 'admin',
+                                                msg_user : c.type == 'customer'
+                                            }">{{c.msg}}</h3>
+
+                                        <h5 class="brown" ng-class="{
+                                                msg_right : c.type == 'admin',
+                                                msg_left : c.type == 'customer',
+                                            }">{{c.date | date : 'hh:mm | dd - MM - yyyy'}}</h5>
+
+
+
+
+                                        <i-button type="delete default"
+                                            ng-click="report_orders.messages.splice($index,1);deleteMessage(report_orders)">
+                                        </i-button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <br>
+
+
+                        <div class="row">
+                            <div class="col3"></div>
+                            <i-textarea class="col6" label="##word.wright_msg##"
+                                ng-keydown="sendMessage($event, report_orders)" ng-model="message">
+                            </i-textarea>
+                        </div>
+                        <!-- <div class="row">
+                                <i-button type="add"
+                                   label="##word.send##" class=" center" ng-click="sendMessage() ; message = ''">
+                                </i-button>
+                            </div> -->
+
+
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+
+        <h2 class="error"> {{error}} </h2>
+
+        <div class="modal-footer center">
+
+            <!-- <i-button type="edit" label="##word.accept##" ng-click="acceptMessage(report_orders)"> </i-button> -->
+
+            <i-button type="close" label="##word.close##" onclick="site.hideModal('#messageModal')"> </i-button>
+
+        </div>
+    </div>
+
 </div>

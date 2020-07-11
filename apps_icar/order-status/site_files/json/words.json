@@ -15,8 +15,68 @@
         "ar": "متابعة"
     },
     {
+        "name": "cancel_order",
+        "en": "Cancelling Order",
+        "ar": "إلغاء الطلب"
+    },
+    {
+        "name": "order_service_evaluation",
+        "en": "Order & Service Evaluation",
+        "ar": "تقييم الطلب و الخدمة"
+    },
+    {
+        "name": "accept_order",
+        "en": "Accept Order",
+        "ar": "تأكيد الطلب"
+    },
+    {
+        "name": "satisfied",
+        "en": "Satisfied",
+        "ar": "راضٍ"
+    },
+    {
+        "name": "not_satisfied",
+        "en": "Not Satisfied",
+        "ar": "غير راضٍ"
+    },
+    {
+        "name": "acceptable",
+        "en": "Acceptable",
+        "ar": "مقبول"
+    },
+    {
+        "name": "reason_cancel_order",
+        "en": "Please choose the reason for canceling the order",
+        "ar": "برجاء إختيار سبب إلغاء الطلب"
+    },
+    {
+        "name": "accept_cancel_order",
+        "en": "Accept Or Cancel Order",
+        "ar": "تأكيد أو إلغاء الطلب"
+    },
+    {
         "name": "err_order",
         "en": "Sorry, there is no order for this number",
         "ar": "عفوا , لا يوجد طلب بهذا الرقم"
+    },
+    {
+        "name": "price_appropriate",
+        "en": "The price is not appropriate",
+        "ar": "السعر غير مناسب"
+    },
+    {
+        "name": "service_appropriate",
+        "en": "The Service is not appropriate",
+        "ar": "الخدمة غير مناسبة"
+    },
+    {
+        "name": "other_reasons",
+        "en": "Other Reasons",
+        "ar": "أسباب اخرى"
+    },
+    {
+        "name": "accept_cancel",
+        "en": "Accept Cancel Order",
+        "ar": "تأكيد أو إلغاء الطلب"
     }
 ]

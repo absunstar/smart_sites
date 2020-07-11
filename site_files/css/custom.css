@@ -251,10 +251,45 @@ nav.sitebottom a.link:hover {
 
 }
 
+.msg_left {
+  text-align: left;
+}
+
+.msg_right {
+  text-align: right;
+}
+
+.btn.cancel {
+ 
+  background: rgb(212, 3, 3);
+  font-weight: bold;
+}
+
+.msg_admin {
+  border: 2px solid #8b83ff;
+  background-color: #c8c6f599;
+  border-radius: 25px;
+  width: auto;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: right;
+
+}
+
+.msg_user {
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px 0;
+  width: auto;
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+ 
+  text-align: left;
+}
+
 .fonti {
   font-size: large;  
   margin-left: 23px;
-  border-bottom: dashed;
 }
 
 .bg-white{
@@ -308,8 +343,8 @@ nav.sitebottom a.link:hover {
   background-color: #55acee;
 }
 .social-menu ul li:nth-child(2) a:hover {
-  background-color: #C13584;
+  background-image: linear-gradient( to right top,#405DE6, #5851DB,#833AB4,#C13584,#FD1D1D,#F56040,#F77737,#FCAF45,#FFDC80);
 }
 .social-menu ul li:nth-child(1) a:hover {
-  background-color: #cd201f;
+  background-color: red;
 }

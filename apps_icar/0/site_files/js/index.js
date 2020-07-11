@@ -56,8 +56,8 @@ app.controller("icar", function ($scope, $http, $timeout) {
     }
 
     $scope.order_status.date = new Date();
-    $scope.order_status.status = { id: 1, ar: 'معلق', en: 'Hold' };
-
+    $scope.order_status.status = { id: 1, ar: 'قيد التسعير', en: 'Under pricing' };
+    $scope.order_status.messages = [];
     $scope.busy = true;
     $http({
       method: "POST",

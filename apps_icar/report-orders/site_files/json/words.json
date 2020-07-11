@@ -12,7 +12,7 @@
     {
         "name": "delivered",
         "en": "Delivered",
-        "ar": "تم التوصيل"
+        "ar": "تم التسليم"
     },
     {
         "name": "hold",
@@ -20,8 +20,53 @@
         "ar": "معلق"
     },
     {
+        "name": "under_pricing",
+        "en": "Under pricing",
+        "ar": "قيد التسعير"
+    },
+    {
         "name": "order_status",
         "en": "Order Status",
         "ar": "حالة الطلب"
+    },
+    {
+        "name": "messages",
+        "en": "Messages",
+        "ar": "الرسائل"
+    },
+    {
+        "name": "confirmed",
+        "en": "Confirmed",
+        "ar": "تم التأكيد"
+    },
+    {
+        "name": "cancelled",
+        "en": "Cancelled",
+        "ar": " ملغي"
+    },
+    {
+        "name": "reason_for_cancellation",
+        "en": "Reason Ror Cancellation",
+        "ar": "سبب الإلغاء"
+    },
+    {
+        "name": "cancellation_order",
+        "en": "Cancellation Order",
+        "ar": "إلغاء الطلب"
+    },
+    {
+        "name": "accept",
+        "en": "Accept",
+        "ar": "تأكيد"
+    },
+    {
+        "name": "order_message",
+        "en": "Order Message",
+        "ar": "رسائل الطلب"
+    },
+    {
+        "name": "order_detailes",
+        "en": "Order Detailes",
+        "ar": "تفاصيل الطلب"
     }
 ]

@@ -47,6 +47,8 @@
     <div id="main-layout" class="container">
         <div class="row">
             <div class="row" ng-controller="order_status">
+
+                <div x-import="order-status/message_modal.html"></div>
                 <br>
                 <br>
                 <br>
@@ -74,6 +76,7 @@
                     </div>
 
                 </div>
+
                 <div class="row" ng-show="list.length > 0">
 
                     <div class="col3"></div>
@@ -104,9 +107,166 @@
 
                         </div>
                         <br>
-                        <br>
-                        <br>
                         <div class="line"></div>
+                        <br>
+
+
+                        <br ng-show="list[0].messages.length > 0 && !list[0].accept_buy && list[0].status.id != 3">
+
+                        <fieldset
+                            ng-show="list[0].messages.length > 0 && !list[0].accept_buy  && list[0].status.id != 3">
+                            <legend>##word.accept_cancel_order##</legend>
+
+                            <div class=" row">
+
+                                <div class="row">
+                                    <div class="col2"></div>
+                                    <i-radio class="col4" ng-model="list[0].convirm" ng-value="accept" group="type"
+                                        label="##word.accept_order##"></i-radio>
+
+                                    <i-radio class="col4" ng-model="list[0].convirm" group="type" ng-value="cancel"
+                                        label="##word.cancel_order##"></i-radio>
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row" ng-show="list[0].convirm == 'cancel'">
+                                    <div class="col3"></div>
+                                    <div class="col6">
+
+                                        <div class="row">
+
+                                            <i-radio ng-model="list[0].cancel.cancel_reason" ng-value="price"
+                                                group="type" label="##word.price_appropriate##"></i-radio>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <i-radio ng-model="list[0].cancel.cancel_reason" group="type"
+                                                ng-value="service" label="##word.service_appropriate##"></i-radio>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <i-radio ng-model="list[0].cancel.cancel_reason" group="type"
+                                                ng-value="other" label="##word.other_reasons##"></i-radio>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <i-textarea label="##word.notes##" ng-model="list[0].cancel.notes">
+                                            </i-textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <h2 class="error">{{error}}</h2>
+
+                                <div class="row" ng-show="list[0].convirm">
+                                    <div class="col5"></div>
+                                    <i-button type="edit" label="##word.accept##" ng-click="acceptOrder(list[0])">
+                                    </i-button>
+
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <fieldset ng-show="!list[0].accept_evaluation && list[0].status.id == 3">
+                            <legend>##word.order_service_evaluation##</legend>
+                            <br>
+                            <br>
+
+                            <div class="row">
+                                <i-radio class="col4" ng-model="list[0].evaluation.vote" ng-value="satisfied"
+                                    group="type" label="##word.satisfied##"></i-radio>
+
+                                <i-radio class="col4" ng-model="list[0].evaluation.vote" group="type"
+                                    ng-value="acceptable" label="##word.acceptable##"></i-radio>
+
+                                <i-radio class="col4" ng-model="list[0].evaluation.vote" group="type"
+                                    ng-value="not_satisfied" label="##word.not_satisfied##"></i-radio>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col2"></div>
+                                <i-control class="col8" label="##word.your_opinion##" ng-model="list[0].evaluation.your_opinion">
+                                </i-control>
+                            </div>
+
+                            <div class="row" ng-show="list[0].evaluation.vote || list[0].evaluation.notes">
+                                <div class="col5"></div>
+                                <i-button type="edit" label="##word.accept##" ng-click="acceptEvaluation(list[0])">
+                                </i-button>
+
+                            </div>
+
+                        </fieldset>
+
+
+
+
+                        <br>
+                        <br>
+                        <div class="row">
+
+                            <fieldset>
+                                <legend>##word.order_message##</legend>
+
+                                <br>
+                                <br>
+                                <div class="row" ng-show="list[0].messages.length > 0">
+                                    <div class="col1"></div>
+                                    <div class="col10 box-shadow post">
+
+                                        <div class="row">
+
+                                            <div ng-repeat="c in list[0].messages">
+
+                                                <h3 class="bold" ng-class="{
+                                                    msg_admin : c.type == 'admin',
+                                                    msg_user : c.type == 'customer'
+                                                }">{{c.msg}}</h3>
+
+
+                                                <h5 class="brown" ng-class="{
+                                                    msg_right : c.type == 'admin',
+                                                    msg_left : c.type == 'customer',
+                                                }">{{c.date | date : 'hh:mm | dd - MM - yyyy'}}</h5>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <br>
+                                <br>
+
+
+                                <div class="row">
+                                    <div class="col3"></div>
+                                    <i-textarea class="col6" label="##word.wright_msg##"
+                                        ng-keydown="sendMessage($event, order_status)" ng-model="message">
+                                    </i-textarea>
+                                </div>
+
+
+
+                            </fieldset>
+
+
+
+                            <!-- <div class="col5"></div>
+                            <i-button type="view" class="col2" label="##word.messages_view##" ng-click="viewMessages(list[0])">
+                            </i-button> -->
+                        </div>
+                        <!-- <br>
+                        <br>
+                        <div class="line"></div> -->
                     </div>
                 </div>
             </div>
