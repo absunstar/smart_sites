@@ -54,8 +54,39 @@
                 <br>
                 <br>
                 <br>
+                <div class="col3"></div>
+                <div class="col6 center post" ng-show="'##user.type##' == 'customer' && !list.length">
+                    <div class="row">
+                        <br>
+                        <table class="table hover bold pointer loaded" id="t1">
+                            <tr>
+                                <th>##word.reference_number##</th>
+                                <th>##word.car_type##</th>
+                                <th>##word.Vehicle_model##</th>
+                                <th>##word.vehicle_identifi##</th>
+                                <th>##word.part_number##</th>
+                                <th>##word.status##</th>
+                            </tr>
 
-                <div class="row" ng-hide="list.length > 0">
+                            <tr ng-repeat="c in ordersList">
+
+                                <td ng-click="getOrderStatusList(c.code)" class="center bold blue">{{c.code}}</td>
+                                <td ng-click="getOrderStatusList(c.code)" class="center bold ">
+                                    {{c.car_type.name_##session.lang##}}</td>
+                                <td ng-click="getOrderStatusList(c.code)" class="center indigo">{{c.Vehicle_model}}</td>
+                                <td ng-click="getOrderStatusList(c.code)" class="center indigo">{{c.vehicle_identifi}}
+                                </td>
+                                <td ng-click="getOrderStatusList(c.code)" class="center indigo">{{c.part_number}}</td>
+                                <td ng-click="getOrderStatusList(c.code)" class="center indigo">
+                                    {{c.status.##session.lang##}}</td>
+
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="row" ng-hide="list.length > 0 || '##user.type##' == 'customer'">
                     <div class="col4"></div>
                     <div class="col4 center post">
 
@@ -191,7 +222,8 @@
                             <br>
                             <div class="row">
                                 <div class="col2"></div>
-                                <i-control class="col8" label="##word.your_opinion##" ng-model="list[0].evaluation.your_opinion">
+                                <i-control class="col8" label="##word.your_opinion##"
+                                    ng-model="list[0].evaluation.your_opinion">
                                 </i-control>
                             </div>
 

@@ -188,9 +188,11 @@ module.exports = function init(site) {
     }
 
     let where = req.body.where || {}
+
+
     if (where.under_delivery || where.under_pricing || where.delivered || where.cancelled_order) {
 
-      where['$or'] = [{ 'status.id': where.under_delivery }, { 'status.id': where.under_pricing }, { 'status.id': where.delivered },{ 'status.id': where.cancelled_order }]
+      where['$or'] = [{ 'status.id': where.under_delivery }, { 'status.id': where.under_pricing }, { 'status.id': where.delivered }, { 'status.id': where.cancelled_order }]
       delete where.under_delivery
       delete where.under_pricing
       delete where.delivered
@@ -249,6 +251,10 @@ module.exports = function init(site) {
       where['code'] = where['code'];
     }
 
+    if (where['customerId']) {
+      where['add_user_info.id'] = where['customerId'];
+      delete where['customerId']
+    }
 
 
     if (where['car_type']) {

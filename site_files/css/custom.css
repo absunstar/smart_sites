@@ -77,6 +77,11 @@ popup item:hover {
   color: #ffffff;
 }
 
+.conect_logo {
+  height: 30px;
+  width: 30px;
+}
+
 .main-menu {
     position: fixed;
     width: auto;
@@ -288,7 +293,7 @@ nav.sitebottom a.link:hover {
 }
 
 .fonti {
-  font-size: large;  
+  font-size: small; 
   margin-left: 23px;
 }
 

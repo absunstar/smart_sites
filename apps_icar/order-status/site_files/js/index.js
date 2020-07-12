@@ -66,6 +66,7 @@ app.controller("order_status", function ($scope, $http, $timeout) {
     if (ev.which !== 13) {
       return;
     }
+    $scope.error = '';
 
     order_status.messages.push({ type: 'customer', msg: $scope.message, date: new Date() });
     $scope.message = '';
@@ -82,6 +83,7 @@ app.controller("order_status", function ($scope, $http, $timeout) {
   };
 
   $scope.acceptOrder = function (order_status) {
+    $scope.error = '';
 
     if (order_status.convirm == 'cancel' && !order_status.cancel) {
       $scope.error = "##word.reason_cancel_order##";
@@ -104,6 +106,7 @@ app.controller("order_status", function ($scope, $http, $timeout) {
 
   $scope.acceptEvaluation = function (order_status) {
 
+    $scope.error = '';
 
     order_status.accept_evaluation = true;
 
@@ -147,7 +150,43 @@ app.controller("order_status", function ($scope, $http, $timeout) {
   };
 
 
+  $scope.getOrderCustomerList = function () {
+    $scope.error = '';
+
+    $scope.busy = true;
+    $scope.ordersList = [];
+    let customerId = { customerId: site.toNumber('##user.id##') };
+
+    $http({
+      method: "POST",
+      url: "/api/order_status/all",
+      data: {
+        where: customerId
+      }
+    }).then(
+      function (response) {
+        $scope.busy = false;
+        if (response.data.done && response.data.list.length > 0) {
+          $scope.ordersList = response.data.list;
+          $scope.count = response.data.count;
+          $scope.search = {};
+
+        } else {
+          $scope.error = '##word.err_order##';
+        }
+      },
+      function (err) {
+        $scope.busy = false;
+        $scope.error = err;
+      }
+
+    )
+
+  };
+
   $scope.getOrderStatusList = function (where) {
+    $scope.error = '';
+
     $scope.busy = true;
     $scope.list = [];
     let code = { code: where };
@@ -189,4 +228,5 @@ app.controller("order_status", function ($scope, $http, $timeout) {
 
 
 
+  if ('##user.type##' == 'customer') $scope.getOrderCustomerList();
 });
