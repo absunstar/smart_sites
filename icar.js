@@ -1,7 +1,7 @@
 const site = require('isite')({
     port: [80 , 33001],
     lang: 'ar',
-    version : '1.0.5',
+    version : '1.0.6',
     name: 'icar',
     theme: 'theme_paper',
     https: {
