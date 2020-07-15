@@ -9,6 +9,18 @@
                 ##word.brand_title## <span> ##word.brand_tag##</span>
             </a>
 
+
+
+            <a class="padding"></a>
+            <a class="padding"></a>
+            <a class="padding"></a>
+
+
+            <a x-features="login" ng-hide="'##user.type##' == 'customer'" href="/report_orders" class="notification ">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <span ng-show="notifi > 0" class="badge">{{notifi}}</span>
+            </a>
+
         </div>
 
         <div class="col6 text-center">

@@ -35,9 +35,12 @@
 
                     <i-button type="search" x-permissions="report_orders_search || report_orders_manage"
                         label="##word.search_all##" onclick="site.showModal('#reportOrdersSearchModal')"></i-button>
-                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_pricing##" ng-model="statusId.under_pricing"></i-checkbox>
-                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_delivery##" ng-model="statusId.under_delivery"></i-checkbox>
-                    <i-checkbox ng-click="getReportOrdersList()" label="##word.delivered##" ng-model="statusId.delivered"></i-checkbox>
+                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_pricing##"
+                        ng-model="statusId.under_pricing"></i-checkbox>
+                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_delivery##"
+                        ng-model="statusId.under_delivery"></i-checkbox>
+                    <i-checkbox ng-click="getReportOrdersList()" label="##word.delivered##"
+                        ng-model="statusId.delivered"></i-checkbox>
 
                     <span ng-show="busy">
                         <span class="sr-only">Loading...</span>
@@ -62,7 +65,8 @@
                             <th class="not-print"> ##word.actions## </th>
                         </tr>
 
-                        <tr class="pointer" ng-repeat="c in list | orderBy : '-id'">
+                        <tr class="pointer" ng-repeat="c in list | orderBy : '-id'"
+                            ng-class="{bg_notifi : !c.notifi || c.notifi == null}">
 
                             <td class="brown" ng-click="displayDetailsReportOrdersList(c)">
                                 {{c.date  | date:'dd - MM - yyyy'}} </td>

@@ -25,6 +25,11 @@
     color: indigo;
 }
 
+.bg_notifi,
+.bg_notifi {
+    background-color: rgb(190, 189, 189) !important;
+}
+
 .gold,
 .gold {
     color: gold;

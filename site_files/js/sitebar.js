@@ -13,6 +13,40 @@ $('body').click(() => {
 
 app.controller('sitebar', ($scope, $http) => {
 
+
+    $scope.notifi = 0;
+    $scope.getOrderNotifiList = function () {
+        $scope.error = '';
+        $http({
+            method: "POST",
+            url: "/api/order_status/all",
+            data: {
+                where: {
+                    'notifi': { $ne: true }
+                }
+            }
+        }).then(
+            function (response) {
+                $scope.busy = false;
+                if (response.data.done && response.data.list.length > 0) {
+                    $scope.notifi = response.data.count;
+                } else {
+                    $scope.error = '##word.err_order##';
+                }
+            },
+            function (err) {
+                $scope.error = err;
+            }
+
+        )
+
+    };
+
+
+    $scope.getOrderNotifiList();
+
+
+
     $scope.register = function () {
         site.showModal('#registerModal');
     };

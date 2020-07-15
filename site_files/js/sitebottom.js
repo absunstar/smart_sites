@@ -8,7 +8,6 @@ app.controller('sitebottom', ($scope, $http) => {
         site.showModal('#registerModal');
     };
 
-  
     $scope.login = function () {
         site.showModal('#loginModal');
     };

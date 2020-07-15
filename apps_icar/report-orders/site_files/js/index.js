@@ -154,6 +154,22 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
   $scope.viewReportOrdersList = function (report_orders) {
     $scope.busy = true;
     $scope.error = '';
+
+    if(!report_orders.notifi){
+      report_orders.notifi = true;
+
+      $http({
+        method: "POST",
+        url: "/api/order_status/update",
+        data: report_orders
+      }).then(
+        function (err) {
+          console.log(err);
+        }
+      )
+    }
+
+
     $http({
       method: "POST",
       url: "/api/order_status/view",

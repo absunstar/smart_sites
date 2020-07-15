@@ -25,7 +25,7 @@
     {"name" : "file_name" , "en" : "File Name" , "ar":"أسم الملف"},
     {"name" : "ar_lang" , "en" : "اللغة العربية" , "ar":"اللغة العربية"},
     {"name" : "en_lang" , "en" : "English" , "ar":"English"},
-    {"name" : "brand_title" , "en" : "Dokkan" , "ar":"دكــــــان"},
+    {"name" : "brand_title" , "en" : "Dokan" , "ar":"دكــــــان"},
     {"name" : "brand_tag" , "en" : "Sell auto parts" , "ar":"بيع قطع غيار السيارات"},
     {"name" : "close" , "en" : "Close" , "ar":"أغلاق"}
 ]
