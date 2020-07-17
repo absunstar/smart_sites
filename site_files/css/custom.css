@@ -273,11 +273,13 @@ nav.sitebottom a.link:hover {
 
 .msg_admin {
   border: 2px solid #8b83ff;
-  background-color: #c8c6f599;
+  background-color: #296ddc;
   border-radius: 25px;
   width: auto;
+  height: auto;
   padding: 10px;
   margin: 10px 0;
+  color: white;
   text-align: right;
 
 }
@@ -287,6 +289,7 @@ nav.sitebottom a.link:hover {
   padding: 10px;
   margin: 10px 0;
   width: auto;
+  height: auto;
   border: 2px solid #dedede;
   background-color: #f1f1f1;
  
