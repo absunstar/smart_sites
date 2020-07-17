@@ -273,7 +273,7 @@ nav.sitebottom a.link:hover {
 
 .msg_admin {
   border: 2px solid #8b83ff;
-  background-color: #296ddc;
+  background-color: rgb(21 142 255);
   border-radius: 25px;
   width: auto;
   height: auto;
@@ -292,7 +292,6 @@ nav.sitebottom a.link:hover {
   height: auto;
   border: 2px solid #dedede;
   background-color: #f1f1f1;
- 
   text-align: left;
 }
 
