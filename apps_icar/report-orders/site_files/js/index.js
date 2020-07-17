@@ -97,25 +97,23 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
   };
 
 
-  $scope.sendMessage = function (ev, report_orders) {
+  $scope.sendMessage = function (report_orders) {
     $scope.error = '';
+    if ($scope.message) {
 
-    if (ev.which !== 13) {
-      return;
+      report_orders.messages.push({ type: 'admin', msg: $scope.message, date: new Date() });
+      $scope.message = '';
+
+      $http({
+        method: "POST",
+        url: "/api/order_status/update",
+        data: report_orders
+      }).then(
+        function (err) {
+          console.log(err);
+        }
+      )
     }
-
-    report_orders.messages.push({ type: 'admin', msg: $scope.message, date: new Date() });
-    $scope.message = '';
-
-    $http({
-      method: "POST",
-      url: "/api/order_status/update",
-      data: report_orders
-    }).then(
-      function (err) {
-        console.log(err);
-      }
-    )
   };
 
   $scope.deleteMessage = function (report_orders) {
@@ -155,7 +153,7 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
     $scope.busy = true;
     $scope.error = '';
 
-    if(!report_orders.notifi){
+    if (!report_orders.notifi) {
       report_orders.notifi = true;
 
       $http({

@@ -276,14 +276,19 @@
                                 </div>
 
                                 <br>
+                                
                                 <br>
 
 
                                 <div class="row">
                                     <div class="col3"></div>
-                                    <i-textarea class="col6" label="##word.wright_msg##"
-                                        ng-keydown="sendMessage($event, order_status)" ng-model="message">
+                                    <i-textarea class="col6" label="##word.wright_msg##" ng-model="message">
                                     </i-textarea>
+                                </div>
+
+                                <div class="row center">
+                                    <i-button type="add" label="##word.send##" ng-click="sendMessage(list[0])">
+                                    </i-button>
                                 </div>
 
 

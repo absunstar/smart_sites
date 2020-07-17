@@ -62,24 +62,26 @@ app.controller("order_status", function ($scope, $http, $timeout) {
       site.showModal('#orderStatusMessageModal')
     }; */
 
-  $scope.sendMessage = function (ev, order_status) {
-    if (ev.which !== 13) {
-      return;
-    }
+  $scope.sendMessage = function (order_status) {
+
     $scope.error = '';
 
-    order_status.messages.push({ type: 'customer', msg: $scope.message, date: new Date() });
-    $scope.message = '';
+    if ($scope.message) {
 
-    $http({
-      method: "POST",
-      url: "/api/order_status/update",
-      data: order_status
-    }).then(
-      function (err) {
-        console.log(err);
-      }
-    )
+
+      order_status.messages.push({ type: 'customer', msg: $scope.message, date: new Date() });
+      $scope.message = '';
+
+      $http({
+        method: "POST",
+        url: "/api/order_status/update",
+        data: order_status
+      }).then(
+        function (err) {
+          console.log(err);
+        }
+      )
+    }
   };
 
   $scope.acceptOrder = function (order_status) {

@@ -8,8 +8,6 @@
         margin: 10px;
         padding: 17px;
     }
-
-   
 </style>
 
 
@@ -65,10 +63,16 @@
 
                         <div class="row">
                             <div class="col3"></div>
-                            <i-textarea class="col6" label="##word.wright_msg##" ng-keydown="sendMessage($event, order_status)" ng-model="message">
+                            <i-textarea class="col6" label="##word.wright_msg##" ng-model="message">
                             </i-textarea>
                         </div>
-                  
+
+                        <div class="row">
+                            <i-button type="add" label="##word.send##" class="center"
+                                ng-click="sendMessage(order_status)">
+                            </i-button>
+                        </div>
+
 
 
                     </fieldset>
