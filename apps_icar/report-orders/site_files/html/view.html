@@ -51,7 +51,7 @@
                         <tr>
                             <td class="title">##word.mobile##</td>
                             <td class="center blue">
-                                <a ng-show="report_orders.mobile" href="tel:{{report_orders.mobile}}">
+                                <a ng-show="report_orders.mobile" href="https://api.whatsapp.com/send?phone={{report_orders.mobile}}">
                                     {{report_orders.mobile}}
                                     <i class="fa fa-mobile" aria-hidden="true"></i>
                                 </a>
@@ -61,7 +61,7 @@
                         <tr>
                             <td class="title">##word.phone##</td>
                             <td class="center">
-                                <a ng-show="report_orders.phone" href="tel:{{report_orders.phone}}">
+                                <a ng-show="report_orders.phone" href="https://api.whatsapp.com/send?phone={{report_orders.phone}}">
                                     {{report_orders.phone}}
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                 </a>
@@ -92,7 +92,7 @@
                         <tr>
                             <td class="title">##word.email##</td>
                             <td class="center">
-                                <a ng-show="report_orders.email_optional" href="tel:{{report_orders.email_optional}}">
+                                <a ng-show="report_orders.email_optional" href="https://api.whatsapp.com/send?phone={{report_orders.email_optional}}">
                                     {{report_orders.email_optional}}
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </a>
