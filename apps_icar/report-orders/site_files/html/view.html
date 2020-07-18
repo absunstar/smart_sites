@@ -163,7 +163,7 @@
                 </i-button>
 
                 <i-button type="fa fa-ban cancel" label="##word.cancellation_order##"
-                    ng-show="report_orders.status.id == 1 || report_orders.status.id == 2"
+                    ng-hide="report_orders.status.id == 3 || report_orders.status.id == 4"
                     ng-click="report_orders.status.id = 4 ; updateReportOrdersList(report_orders)">>
                 </i-button>
 
