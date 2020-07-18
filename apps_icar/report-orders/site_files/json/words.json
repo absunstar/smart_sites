@@ -45,6 +45,11 @@
         "ar": " ملغي"
     },
     {
+        "name": "cancelled",
+        "en": "Cancelled",
+        "ar": " ملغي"
+    },
+    {
         "name": "reason_for_cancellation",
         "en": "Reason Ror Cancellation",
         "ar": "سبب الإلغاء"
@@ -58,6 +63,11 @@
         "name": "accept",
         "en": "Accept",
         "ar": "تأكيد"
+    },
+    {
+        "name": "accepted",
+        "en": "Accepted",
+        "ar": "تم التأكيد"
     },
     {
         "name": "order_message",

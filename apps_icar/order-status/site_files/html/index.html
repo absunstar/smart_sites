@@ -205,6 +205,11 @@
                         </fieldset>
 
 
+                        <div class="row center" ng-show="list[0].status.id == 2">
+                            <i-button type="save" label="##word.received##" ng-click="received(list[0])">
+                            </i-button>
+                        </div>
+
                         <fieldset ng-show="!list[0].accept_evaluation && list[0].status.id == 3">
                             <legend>##word.order_service_evaluation##</legend>
                             <br>

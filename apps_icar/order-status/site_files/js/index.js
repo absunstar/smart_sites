@@ -32,9 +32,9 @@ app.controller("order_status", function ($scope, $http, $timeout) {
     )
   };
 
-  $scope.acceptMessage = function (c) {
+  $scope.received = function (c) {
     $scope.error = '';
-
+    c.status = { id: 3, en: 'Sent delivered', ar: 'تم التسليم' };
     $http({
       method: "POST",
       url: "/api/order_status/update",
@@ -42,8 +42,6 @@ app.controller("order_status", function ($scope, $http, $timeout) {
     }).then(
       function (response) {
         if (response.data.done) {
-
-          site.hideModal('#orderStatusMessageModal');
 
         } else {
           $scope.error = 'Please Login First';
@@ -90,7 +88,13 @@ app.controller("order_status", function ($scope, $http, $timeout) {
     if (order_status.convirm == 'cancel' && !order_status.cancel) {
       $scope.error = "##word.reason_cancel_order##";
       return;
-    }
+    };
+
+    if (order_status.convirm == 'accept') {
+      order_status.status = { id: 5, en: 'Accepted', ar: 'تم التأكيد' }
+    };
+
+
     order_status.accept_buy = true;
 
     $http({

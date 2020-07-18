@@ -20,6 +20,11 @@
         "ar": "إلغاء الطلب"
     },
     {
+        "name": "received",
+        "en": "Received",
+        "ar": "تم الإستلام"
+    },
+    {
         "name": "order_service_evaluation",
         "en": "Order & Service Evaluation",
         "ar": "تقييم الطلب و الخدمة"

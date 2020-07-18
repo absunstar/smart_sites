@@ -6,6 +6,7 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
   $scope.statusId = {
     under_pricing: true,
     under_delivery: true,
+    accepted: true,
     delivered: false,
     cancelled_order: false
   };
@@ -13,7 +14,7 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
   $scope.status_list = [
     { id: 1, en: 'Under pricing', ar: 'قيد التسعير' },
     { id: 2, en: 'Under delivery', ar: 'قيد التوصيل' },
-    { id: 3, en: 'Sent delivered handed', ar: 'تم التسليم' },
+    { id: 3, en: 'Sent delivered', ar: 'تم التسليم' },
   ];
 
   $scope.getReportOrdersList = function (where) {
@@ -30,9 +31,10 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
     if ($scope.statusId.delivered) where.delivered = 3;
 
     if ($scope.statusId.cancelled_order) where.cancelled_order = 4;
+    if ($scope.statusId.accepted) where.accepted = 5;
 
     $scope.statusId.cancelled_order = false;
-
+    
 
     $http({
       method: "POST",
@@ -67,7 +69,7 @@ app.controller("report_orders", function ($scope, $http, $timeout) {
       c.status = { id: 2, en: 'Under delivery', ar: 'قيد التوصيل' }
 
     } else if (c.status.id == 3) {
-      c.status = { id: 3, en: 'Sent delivered handed', ar: 'تم التسليم' }
+      c.status = { id: 3, en: 'Sent delivered', ar: 'تم التسليم' }
 
     } else if (c.status.id == 4) {
       c.status = { id: 4, en: 'Cancelled', ar: 'ملغي' }

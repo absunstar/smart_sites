@@ -35,11 +35,15 @@
 
                     <i-button type="search" x-permissions="report_orders_search || report_orders_manage"
                         label="##word.search_all##" onclick="site.showModal('#reportOrdersSearchModal')"></i-button>
-                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_pricing##"
+                    <i-checkbox class="left" ng-click="getReportOrdersList()" label="##word.under_pricing##"
                         ng-model="statusId.under_pricing"></i-checkbox>
-                    <i-checkbox ng-click="getReportOrdersList()" label="##word.under_delivery##"
+                    <i-checkbox class="left" ng-click="getReportOrdersList()" label="##word.under_delivery##"
                         ng-model="statusId.under_delivery"></i-checkbox>
-                    <i-checkbox ng-click="getReportOrdersList()" label="##word.delivered##"
+
+                    <i-checkbox class="left" ng-click="getReportOrdersList()" label="##word.accepted##"
+                        ng-model="statusId.accepted"></i-checkbox>
+
+                    <i-checkbox class="left" ng-click="getReportOrdersList()" label="##word.delivered##"
                         ng-model="statusId.delivered"></i-checkbox>
 
                     <span ng-show="busy">
@@ -80,12 +84,12 @@
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.vehicle_identifi}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.part_number}} </td>
                             <td ng-click="displayDetailsReportOrdersList(c)"> {{c.customer_name}} </td>
-                            <td ng-click="displayDetailsReportOrdersList(c)" class="red"> {{c.status.##session.lang##}}
+                            <td ng-click="displayDetailsReportOrdersList(c)" class="green"> {{c.status.##session.lang##}}
                             </td>
                             <td class="not-print">
 
                                 <i-button x-permissions="report_orders_edit || report_orders_manage"
-                                    ng-show="c.status.id == 1" label="##word.under_delivery##"
+                                    ng-show="c.status.id == 1 || c.status.id == 5" label="##word.under_delivery##"
                                     ng-click="c.status.id = 2 ; updateReportOrdersList(c)">
                                 </i-button>
 

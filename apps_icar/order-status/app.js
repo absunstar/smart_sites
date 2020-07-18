@@ -190,12 +190,13 @@ module.exports = function init(site) {
     let where = req.body.where || {}
 
 
-    if (where.under_delivery || where.under_pricing || where.delivered || where.cancelled_order) {
+    if (where.under_delivery || where.under_pricing || where.delivered || where.cancelled_order || where.accepted) {
 
-      where['$or'] = [{ 'status.id': where.under_delivery }, { 'status.id': where.under_pricing }, { 'status.id': where.delivered }, { 'status.id': where.cancelled_order }]
+      where['$or'] = [{ 'status.id': where.under_delivery }, { 'status.id': where.under_pricing }, { 'status.id': where.delivered }, { 'status.id': where.cancelled_order }, { 'status.id': where.accepted }]
       delete where.under_delivery
       delete where.under_pricing
       delete where.delivered
+      delete where.accepted
       delete where.cancelled_order
     }
 

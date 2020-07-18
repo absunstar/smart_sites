@@ -51,7 +51,8 @@
                         <tr>
                             <td class="title">##word.mobile##</td>
                             <td class="center blue">
-                                <a ng-show="report_orders.mobile" href="https://api.whatsapp.com/send?phone={{report_orders.mobile}}">
+                                <a ng-show="report_orders.mobile"
+                                    href="https://api.whatsapp.com/send?phone={{report_orders.mobile}}">
                                     {{report_orders.mobile}}
                                     <i class="fa fa-mobile" aria-hidden="true"></i>
                                 </a>
@@ -61,7 +62,8 @@
                         <tr>
                             <td class="title">##word.phone##</td>
                             <td class="center">
-                                <a ng-show="report_orders.phone" href="https://api.whatsapp.com/send?phone={{report_orders.phone}}">
+                                <a ng-show="report_orders.phone"
+                                    href="https://api.whatsapp.com/send?phone={{report_orders.phone}}">
                                     {{report_orders.phone}}
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                 </a>
@@ -92,7 +94,8 @@
                         <tr>
                             <td class="title">##word.email##</td>
                             <td class="center">
-                                <a ng-show="report_orders.email_optional" href="https://api.whatsapp.com/send?phone={{report_orders.email_optional}}">
+                                <a ng-show="report_orders.email_optional"
+                                    href="https://api.whatsapp.com/send?phone={{report_orders.email_optional}}">
                                     {{report_orders.email_optional}}
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </a>
@@ -114,7 +117,8 @@
 
                 <br>
                 <br>
-                <fieldset>
+
+                <fieldset ng-show="report_orders.convirm">
                     <legend>##word.accept_cancel_order##</legend>
 
                     <table class="table hover bold" id="v1">
@@ -123,7 +127,7 @@
                             <td class="title">##word.accept_order##</td>
                             <td class="center bold green" ng-show="report_orders.convirm=='accept'"> ##word.confirmed##
                             </td>
-                            <td class="center bold red" ng-show="report_orders.convirm=='cancel'"> ##word.Canceled##
+                            <td class="center bold red" ng-show="report_orders.convirm=='cancel'"> ##word.cancelled##
                             </td>
                         </tr>
 
@@ -158,7 +162,9 @@
                 <i-button type="view" label="##word.messages_view##" onclick="site.showModal('#messageModal')">
                 </i-button>
 
-                <i-button type="fa fa-ban cancel" label="##word.cancellation_order##" ng-show="report_orders.status.id == 1 || report_orders.status.id == 2" ng-click="report_orders.status.id = 4 ; updateReportOrdersList(report_orders)">>
+                <i-button type="fa fa-ban cancel" label="##word.cancellation_order##"
+                    ng-show="report_orders.status.id == 1 || report_orders.status.id == 2"
+                    ng-click="report_orders.status.id = 4 ; updateReportOrdersList(report_orders)">>
                 </i-button>
 
             </div>
