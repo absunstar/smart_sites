@@ -2,14 +2,19 @@
 <html lang="en" data-ng-app="myApp">
 
 <head x-import="head.html">
-  <style x-lang="ar" >
-    :root {
-      --x-background: url("/images/icc_proshor_ar.png") repeat fixed;
+  <style x-lang="ar">
+    body {
+      background-image: url("/images/icc_proshor_ar.png");
+      height: 2400px;
+
     }
   </style>
-  <style x-lang="en" >
-    :root {
-      --x-background: url("/images/icc_proshor_en.png") repeat fixed;
+
+  <style x-lang="en">
+    body {
+      background-image: url("/images/icc_proshor_en.png");
+      height: 2400px;
+      background-size: cover;
     }
   </style>
 
@@ -25,7 +30,7 @@
 
 
   <div id="main-layout" class="container">
-   
+
   </div>
   <div x-import="scripts.html"></div>
 
