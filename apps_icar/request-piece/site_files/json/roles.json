@@ -1,0 +1,7 @@
+[{
+    "module_name" : "public" ,
+    "name": "request_piece_admin",
+    "en": "Cars Name Admin",
+    "ar": "إدارة أسماء السيارات",
+    "permissions": ["request_piece_manage"]
+}]

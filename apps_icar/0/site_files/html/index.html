@@ -2,56 +2,18 @@
 <html lang="en" data-ng-app="myApp">
 
 <head x-import="head.html">
-  <style>
+  <style x-lang="ar" >
     :root {
-
-      --x-background: url('/images/car_back.png') repeat fixed;
-    }
-
-    .table th {
-      height: 50px;
-      width: 50px;
-      background-color: #273aa3;
-      color: #ffffff;
-      border-radius: 0px;
-      font-size: medium;
-    }
-
-    .table input {
-      font-size: 17px !important;
-    }
-
-
-    .post {
-      display: inline-grid;
-      border: 1px solid rgb(18, 18, 211);
-      background: #fff;
-      color: #000;
-      text-align: center;
-      line-height: 0.8;
-      width: 500px;
-      height: auto;
-      margin: 10px;
-      padding: 17px;
-    }
-
-    .shadow {
-      text-shadow: 1px 1px goldenrod;
-    }
-
-    .btn.saving {
-      width: 90%;
-      height: 60px;
-      font-size: 22px;
-      padding-top: 20px;
-      background: rgb(18, 18, 211);
-      font-weight: bold;
-    }
-
-    input {
-      background-color: white;
+      --x-background: url("/images/icc_proshor_ar.png") repeat fixed;
     }
   </style>
+  <style x-lang="en" >
+    :root {
+      --x-background: url("/images/icc_proshor_en.png") repeat fixed;
+    }
+  </style>
+
+
   <link rel="stylesheet" href="/css/mobile.css?v=##site.options.version##">
 </head>
 
@@ -63,163 +25,9 @@
 
 
   <div id="main-layout" class="container">
-    <div class="row" ng-controller="icar">
-      <br>
-      <br>
-      <h2 class="bold center shadow gold">##word.delivery_inside_outside##</h2>
-      <br>
-      <br>
-      <div class="row" ng-show="!code">
-        <div class="col4"></div>
-        <div class="col4">
-          <div class="padding margin" id="orderPartAddModal">
-            <table class="table box-shadow ">
-              <tr>
-                <th colspan="2">
-                  ##word.order_part_now##
-                </th>
-              </tr>
-              <tr>
-
-                <td>
-
-                  <i-list v="r" label="##word.car_type##" ng-model="order_status.car_type" items="carsTypeList"
-                    display="name_ar" display2="name_en" space=" - " ng-change="getCArsNameList(order_status.car_type)" ng-search="_search.$car_type_search">
-                  </i-list>
-
-                  <i-list v="r" label="##word.car_name##" ng-model="order_status.car_name" items="carsNameList"
-                    display="name_ar" display2="name_en" space=" - " ng-search="_search.$car_name_search">
-                  </i-list>
-
-
-                  <i-control label="##word.Vehicle_model##" v="r" ng-model="order_status.Vehicle_model">
-                  </i-control>
-
-                  <i-control label="##word.vehicle_identifi##" ng-model="order_status.vehicle_identifi">
-                  </i-control>
-
-                  <i-checkbox label="##word.upload_form##" ng-model="upload_form">
-                  </i-checkbox>
-
-                  <i-image help-id="city_logo" ng-show="upload_form" ng-model="order_status.image_url"></i-image>
-
-                  <i-control v="r" label="##word.part_number##" ng-model="order_status.part_number">
-                  </i-control>
-
-                  <i-control v="r" label="##word.customer_name##" ng-model="order_status.customer_name">
-                  </i-control>
-
-                  <i-control v="r" label="##word.mobile##" ng-model="order_status.mobile">
-                  </i-control>
-
-                  <i-control label="##word.phone##" ng-model="order_status.phone">
-                  </i-control>
-
-                  <i-list v="r" label="##word.gov##" ng-model="order_status.gov" items="govList"
-                    display="name" ng-change="getCityList(order_status.gov)" ng-search="_search.$govNameContact">
-                  </i-list>
-
-                  <i-list label="##word.city##" ng-model="order_status.city" items="cityList"
-                    ng-change="getAreaList(order_status.city)" display="name"
-                    ng-search="_search.$order_status.$city_search">
-                  </i-list>
-<!-- 
-                  <i-list label="##word.area##" ng-model="order_status.area" items="areaList" display="name"
-                    ng-search="_search.$order_status.$area_search">
-                  </i-list> -->
-
-                  <i-control v="r" label="##word.detailed_address##" ng-model="order_status.address">
-                  </i-control>
-
-                  <i-control label="##word.email_optional##" ng-model="order_status.email_optional">
-                  </i-control>
-                  <br>
-                  <div class="row">
-
-                    <i-radio v="r" class="col6" ng-model="order_status.place" ng-value="work" group="type"
-                      label="##word.workshop_center##"></i-radio>
-
-                    <i-radio v="r" class="col6" ng-model="order_status.place" group="type" ng-value="personal"
-                      label="##word.personal##">
-                    </i-radio>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-              <tr>
-                <td class="center">
-                  <h2 class="red bold center"> {{error}} </h2>
-                  <br ng-show="error">
-                  <br ng-show="error">
-                  <i-button type="fa fa-car saving" label="##word.order_now##" ng-click="addOrderStatus()">
-                  </i-button>
-                </td>
-              </tr>
-
-            </table>
-
-          </div>
-        </div>
-
-
-        <!-- <div class="col2"></div>
-
-
-        <div class="col4">
-          <div id="customerOpinionAddModal" class="padding margin">
-            <table class="table box-shadow ">
-              <tr>
-                <th colspan="2">
-                  ##word.customer_opinions##
-                </th>
-              </tr>
-              <tr>
-
-                <td>
-                  <i-control v="r" label="##word.full_name##" ng-model="customer_opinion.full_name">
-                  </i-control>
-                  <i-control v="r" label="##word.your_opinion##" ng-model="customer_opinion.your_opinion">
-                  </i-control>
-                </td>
-
-              </tr>
-
-              <tr>
-                <td class="center">
-                  <i-button label="##word.share_opinion##" type="fa fa-thumbs-o-up font-b saving"
-                    ng-click="addCustomerOpinion()">
-                  </i-button>
-                </td>
-              </tr>
-
-            </table>
-
-          </div>
-        </div> -->
-
-      </div>
-
-
-      <div class="row" ng-show="code">
-        <div class="col3"></div>
-        <div class="col6 center box-shadow post">
-          <h1 class="blue bold center line">##word.request_successfully##</h1>
-          <br>
-          <h2 class="bold center"> ##word.confirmation_mobile##</h2>
-          <h2 class="bold center"> ##word.follow_request_reference_num##</h2>
-          <h2 class="center fa fa-arrow-down"></h2>
-          <h2 class="bold userPrint center blue"> {{code}}</h2>
-        </div>
-      </div>
-
-
-    </div>
+   
   </div>
   <div x-import="scripts.html"></div>
-  <script x-import="0/index.js"></script>
 
 </body>
 

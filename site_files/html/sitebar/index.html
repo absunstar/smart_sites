@@ -1,29 +1,40 @@
 <h2 class="brand ">
     <div class="row">
-        <div class="col3" help-id="brand_title">
-            <a ng-hide="'##user.type##' =='customer'  " x-permissions="login" href="#"
-                onclick="event.stopPropagation(); $('.sitebar .links').toggle(200)"> <i class="fa fa-bars"></i>
-            </a>
+        <div class="col1 icc">
+            <img ng-src="/images/icc_logo.png" />
+        </div>
 
-            <a href="/">
-                ##word.brand_title## <span> ##word.brand_tag##</span>
-            </a>
+        <div class="col2" help-id="brand_title">
+            <br>
+            <div class="row">
+
+                <a ng-hide="'##user.type##' =='customer'  " x-permissions="login" href="#"
+                    onclick="event.stopPropagation(); $('.sitebar .links').toggle(200)"> <i class="fa fa-bars"></i>
+                </a>
+
+                <a href="/">
+                    ##word.brand_title## <span> ##word.brand_tag##</span>
+                </a>
+
+                <!-- <img class="icc" ng-src="/images/icc_logo.png" /> -->
+
+                <a class="padding"></a>
+                <a class="padding"></a>
+                <a class="padding"></a>
 
 
-
-            <a class="padding"></a>
-            <a class="padding"></a>
-            <a class="padding"></a>
-
-
-            <a x-features="login" ng-hide="'##user.type##' == 'customer'" href="/report_orders" class="notification ">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <span ng-show="notifi > 0" class="badge">{{notifi}}</span>
-            </a>
+                <a x-features="login" ng-hide="'##user.type##' == 'customer'" href="/report_orders"
+                    class="notification ">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <span ng-show="notifi > 0" class="badge">{{notifi}}</span>
+                </a>
+            </div>
 
         </div>
 
-        <div class="col6 text-center">
+
+
+        <div class="col6 text-center" style="margin-top: 15px;">
 
             <a class="font-f" href="/how_use"> ##word.how_use## </a>
 
@@ -33,11 +44,12 @@
 
             <a class="font-f" href="/order_status"> ##word.order_status## </a>
 
-            <a class="font-f" href="/"> ##word.request_piece## </a>
+            <a class="font-f" href="/request_piece"> ##word.request_piece## </a>
 
         </div>
 
         <div class="col3 text-left ">
+            <br>
             <div class="info">
                 <span x-features="login" class=" user-name"> ##user.name## </span>
                 <a x-features="!login" id="btn_register" ng-click="registerCustomer()">

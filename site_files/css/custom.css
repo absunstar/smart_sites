@@ -284,6 +284,12 @@ nav.sitebottom a.link:hover {
 
 }
 
+.icc img {
+  margin-top: -33px !important;
+  margin-bottom: -50px !important;
+  width: 140px;
+}
+
 .msg_user {
   border-radius: 25px;
   padding: 10px;

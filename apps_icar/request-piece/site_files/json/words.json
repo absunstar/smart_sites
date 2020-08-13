@@ -1,0 +1,57 @@
+[
+    {
+        "name": "customers_add",
+        "en": "Add Customer",
+        "ar": "إضافة عميل"
+    },
+    {
+        "name": "request_piece_informations",
+        "en": "Car Name Informations",
+        "ar": "بيانات إسم السيارة"
+    },
+    {
+        "name": "request_pieces",
+        "en": "Cars Names",
+        "ar": "أسماء السيارات"
+    },
+    {
+        "name": "car_name",
+        "en": "Car Name",
+        "ar": "إسم السيارة"
+    },
+    {
+        "name": "car_name_ar",
+        "en": "Car Name Arabic",
+        "ar": "إسم السيارة بالعربية"
+    },
+    {
+        "name": "car_name_en",
+        "en": "Car Name English",
+        "ar": "إسم السيارة بالإنجليزية"
+    },
+    {
+        "name": "request_piece_new",
+        "en": "New Car Name",
+        "ar": "إسم سيارة جديدة"
+    },
+    {
+        "name": "request_piece_details",
+        "en": "Car Name Details",
+        "ar": "تفاصيل إسم سيارة"
+    },
+    {
+        "name": "request_piece_update",
+        "en": "Edit Car Name",
+        "ar": "تعديل إسم سيارة"
+    },
+    {
+        "name": "request_piece_delete",
+        "en": "Delte Car Name",
+        "ar": "حذف إسم سيارة"
+    },
+    {
+        "name": "request_piece_add_name",
+        "en": "Add Car Name",
+        "ar": "إضافة إسم سيارة"
+    }
+]
