@@ -84,7 +84,7 @@ popup item:hover {
 .main-menu {
   position: fixed;
   width: auto;
-  right: 0px;
+  right: 200px;
   top: 52px;
   overflow: scroll;
   height: 100vh;
