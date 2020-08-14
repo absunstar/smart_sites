@@ -268,7 +268,15 @@ nav.sitebottom a.link:hover {
     margin-top: 200px;
     margin-bottom: 100px;
   }
-
+  .icc img {
+    width: 80px;
+  }
+  .ar .brand_title {
+    padding-right: 100px;
+  }
+  .en .brand_title {
+    padding-left: 100px;
+  }
   .tabs .tabs-header .tab-link {
     font-size: 12px;
     padding: 5px;
