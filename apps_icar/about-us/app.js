@@ -7,5 +7,4 @@ module.exports = function init(site){
         compress: true
       })
 
-    site.get({name:'images' , path: __dirname + '/site_files/images/'})
 }
