@@ -1,13 +1,7 @@
 <h2 class="brand ">
     <div class="row">
-        <div class="col1 icc">
-            <img ng-src="/images/icc_logo.png" />
-        </div>
-
-        <div class="col2" help-id="brand_title">
-            <br>
+        <div class="col9 brand_title" help-id="brand_title">
             <div class="row">
-
                 <a ng-hide="'##user.type##' =='customer'  " x-permissions="login" href="#"
                     onclick="event.stopPropagation(); $('.sitebar .links').toggle(200)"> <i class="fa fa-bars"></i>
                 </a>
@@ -34,22 +28,9 @@
 
 
 
-        <div class="col6 text-center" style="margin-top: 15px;">
-
-            <a class="font-f" href="/how_use"> ##word.how_use## </a>
-
-            <a class="font-f" href="/about_us"> ##word.about_us## </a>
-
-            <a class="font-f" href="/customer_opinion"> ##word.customer_opinion## </a>
-
-            <a class="font-f" href="/order_status"> ##word.order_status## </a>
-
-            <a class="font-f" href="/request_piece"> ##word.request_piece## </a>
-
-        </div>
+     
 
         <div class="col3 text-left ">
-            <br>
             <div class="info">
                 <span x-features="login" class=" user-name"> ##user.name## </span>
                 <a x-features="!login" id="btn_register" ng-click="registerCustomer()">
@@ -64,8 +45,3 @@
     </div>
 
 </h2>
-
-
-<div class="links">
-    <div x-import="menu/index.html"></div>
-</div>

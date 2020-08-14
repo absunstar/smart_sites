@@ -2,22 +2,6 @@
 <html lang="en" data-ng-app="myApp">
 
 <head x-import="head.html">
-  <style x-lang="ar">
-    body {
-      background-image: url("/images/icc_proshor_ar.png");
-      height: 2400px;
-
-    }
-  </style>
-
-  <style x-lang="en">
-    body {
-      background-image: url("/images/icc_proshor_en.png");
-      height: 2400px;
-      background-size: cover;
-    }
-  </style>
-
 
   <link rel="stylesheet" href="/css/mobile.css?v=##site.options.version##">
 </head>
@@ -25,12 +9,14 @@
 
 <body class="##session.lang##">
   <nav class="sitebar" x-import="sitebar/index.html" ng-controller="sitebar"></nav>
+  <div x-import="sitebar/menu.html" ></div>
 
   <nav class="sitebottom" x-import="sitebottom/index.html" ng-controller="sitebottom"></nav>
 
 
-  <div id="main-layout" class="container">
-
+  <div id="main-layout" class="container center">
+      <img x-lang="ar" class="proshor" src="/images/icc_proshor_ar.jpg">
+      <img x-lang="en" class="proshor" src="/images/icc_proshor_en.jpg">
   </div>
   <div x-import="scripts.html"></div>
 

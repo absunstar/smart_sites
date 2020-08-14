@@ -1,5 +1,5 @@
 :root {
-  --theme-color: #556ae2;
+  --theme-color: #1b69a7;
   --theme-color2: #2f8033;
   --x-background: #ffffff;
   --font-size: 14px;
@@ -17,8 +17,6 @@
   --btn-box-shadow-color: #555;
   --btn-border-radius: 0px;
   --btn-color: #fff;
-  --theme-color: #273aa3;
-
   --btn-background-color: #000;
   --fieldset-border: 1px solid var(--theme-color);
   --fieldset-background: none;
@@ -26,15 +24,20 @@
   --tabs-header-link-color: #444;
   --tabs-header-link-color2: #ffffff;
   --tabs-header-link-border-bottom: 1px solid var(--theme-color);
-  --help-content-color: blue;
+  --help-content-color: #1b69a7;
   --help-background-color: var(--x-background);
   --help-border: 1px solid #000;
 }
 
 body {
-  margin-top: 100px;
+  margin-top: 70px;
   margin-bottom: 100px;
   background-size: cover;
+}
+
+img.proshor {
+  width: 80%;
+  border-radius: 0px;
 }
 
 a {
@@ -48,8 +51,6 @@ fieldset legend {
 .help-container {
   bottom: 50px;
 }
-
-
 
 .tabs .tabs-header .tab-link {
   font-size: 16px;
@@ -72,7 +73,6 @@ fieldset legend {
   box-shadow: 0px 8px 14px -1px var(--btn-box-shadow-color);
 }
 
-
 popup item:hover {
   background: #3f51ff;
   color: #ffffff;
@@ -84,18 +84,17 @@ popup item:hover {
 }
 
 .main-menu {
-    position: fixed;
-    width: auto;
-    right: 0px;
-    top: 52px;
-    overflow: scroll;
-    height: 100vh;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 1px 1px 3px 1px var(--theme-color);
-    background: white;
-    border-radius: 0px 0px 0px 0px;
-
+  position: fixed;
+  width: auto;
+  right: 0px;
+  top: 52px;
+  overflow: scroll;
+  height: 100vh;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 1px 1px 3px 1px var(--theme-color);
+  background: white;
+  border-radius: 0px 0px 0px 0px;
 }
 
 .modal {
@@ -132,6 +131,7 @@ nav h2.brand a {
   font-weight: bold;
   color: #ffeb3b;
   text-decoration: none;
+  vertical-align: middle;
 }
 
 nav h2.brand a span {
@@ -220,7 +220,27 @@ nav.sitebottom a.link:hover {
   background: #fff;
   color: #444;
 }
-
+.ar .brand_title {
+  padding-right: 200px;
+}
+.en .brand_title {
+  padding-left: 200px;
+}
+.links {
+}
+.links a.link {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px;
+  padding-right: 10px;
+  margin: 5px;
+  display: inline-block;
+}
+.links a.link:hover {
+  transform: scale(1.3);
+}
 .footer {
   margin: 20px;
   border: 1px solid #bbb;
@@ -234,7 +254,23 @@ nav.sitebottom a.link:hover {
   font-weight: bold;
   color: green;
 }
+.icc img {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 9999999;
+  border-radius: 5px;
+  width: 140px;
+  background: var(--theme-color);
+}
+
 @media screen and (max-width: 768px) {
+
+  body {
+    margin-top: 200px;
+    margin-bottom: 100px;
+  }
+
   .tabs .tabs-header .tab-link {
     font-size: 12px;
     padding: 5px;
@@ -254,7 +290,6 @@ nav.sitebottom a.link:hover {
   .modal-content.small {
     width: 90%;
   }
-
 }
 
 .msg_left {
@@ -266,7 +301,6 @@ nav.sitebottom a.link:hover {
 }
 
 .btn.cancel {
- 
   background: rgb(212, 3, 3);
   font-weight: bold;
 }
@@ -281,13 +315,6 @@ nav.sitebottom a.link:hover {
   margin: 10px 0;
   color: white;
   text-align: right;
-
-}
-
-.icc img {
-  margin-top: -33px !important;
-  margin-bottom: -50px !important;
-  width: 140px;
 }
 
 .msg_user {
@@ -302,16 +329,16 @@ nav.sitebottom a.link:hover {
 }
 
 .fonti {
-  font-size: small; 
+  font-size: small;
   margin-left: 23px;
 }
 
-.bg-white{
+.bg-white {
   background-color: white;
 }
 
 .userPrint {
-  user-select :all
+  user-select: all;
 }
 
 .social-menu ul {
@@ -330,10 +357,10 @@ nav.sitebottom a.link:hover {
   color: #ffffff;
   font-size: 25px;
   line-height: 50px;
-  transition: .5s;
+  transition: 0.5s;
 }
 .social-menu ul li .fa:hover {
-  color:   #ffffff;
+  color: #ffffff;
 }
 .social-menu ul li a {
   position: relative;
@@ -344,7 +371,7 @@ nav.sitebottom a.link:hover {
   background-color: #000000;
   text-align: center;
   transition: 0.5s;
-  transform: translate(0,0px);
+  transform: translate(0, 0px);
   box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
 }
 .social-menu ul li a:hover {
@@ -357,13 +384,11 @@ nav.sitebottom a.link:hover {
   background-color: #55acee;
 }
 .social-menu ul li:nth-child(2) a:hover {
-  background-image: linear-gradient( to right top,#405DE6, #5851DB,#833AB4,#C13584,#FD1D1D,#F56040,#F77737,#FCAF45,#FFDC80);
+  background-image: linear-gradient(to right top, #405de6, #5851db, #833ab4, #c13584, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
 }
 .social-menu ul li:nth-child(1) a:hover {
   background-color: red;
 }
-
-
 
 .notification {
   color: white;
