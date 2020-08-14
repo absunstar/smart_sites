@@ -8,8 +8,6 @@
   --input-focus-border-color: var(--theme-color);
   --input-color: #000000;
   --color: #444;
-  --background-color: var(--x-background);
-  --body-background: var(--x-background);
   --modal-header-background-color: var(--theme-color);
   --modal-box-shadow-color: #555;
   --modal-animation-name: animateopacity;
@@ -25,7 +23,7 @@
   --tabs-header-link-color2: #ffffff;
   --tabs-header-link-border-bottom: 1px solid var(--theme-color);
   --help-content-color: #1b69a7;
-  --help-background-color: var(--x-background);
+
   --help-border: 1px solid #000;
 }
 
