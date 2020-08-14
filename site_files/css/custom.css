@@ -84,7 +84,6 @@ popup item:hover {
 .main-menu {
   position: fixed;
   width: auto;
-  right: 200px;
   top: 52px;
   overflow: scroll;
   height: 100vh;
@@ -254,7 +253,6 @@ nav.sitebottom a.link:hover {
 }
 .icc img {
   position: fixed;
-  right: 0px;
   top: 0px;
   z-index: 9999999;
   border-radius: 5px;
@@ -268,9 +266,7 @@ nav.sitebottom a.link:hover {
     margin-top: 100px;
     margin-bottom: 100px;
   }
-  .main-menu {
-    right: 50px;
-  }
+
   .icc img {
     width: 80px;
   }
