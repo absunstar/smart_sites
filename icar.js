@@ -13,7 +13,14 @@ const site = require('isite')({
             email: 'icar',
             password: 'icar'
         }
-    }
+    }, require: {
+        features: [],
+        permissions: [],
+      },
+      default: {
+        features: [],
+        permissions: [],
+      }
 })
 
 site.get({
