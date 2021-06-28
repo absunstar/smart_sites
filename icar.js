@@ -9,10 +9,7 @@ const site = require('../isite')({
         limit: 100000
     },
     security: {
-        admin: {
-            email: 'icar',
-            password: 'icar'
-        }
+        keys : ['f6fdffe48c908deb0f4c3bd36c032e72']
     }, require: {
         features: [],
         permissions: [],
@@ -62,3 +59,4 @@ site.run()
 //     console.log(attend)
 // })
 
+console.log(site.md5('adminadmin'))
