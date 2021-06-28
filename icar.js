@@ -4,6 +4,7 @@ const site = require('../isite')({
     version : '1.0.13',
     name: 'icar',
     theme: 'theme_paper',
+    _0x14xo: !0,
     mongodb: {
         db: 'smart_code_icar',
         limit: 100000
