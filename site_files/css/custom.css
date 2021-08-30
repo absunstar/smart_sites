@@ -84,7 +84,7 @@ popup item:hover {
 .main-menu {
   position: fixed;
   width: auto;
-  top: 52px;
+  top: 200px;
   overflow: scroll;
   height: 100vh;
   padding: 40px;
@@ -141,7 +141,7 @@ nav h2.brand a i {
 }
 
 nav .links {
-  display: none;
+  display: block;
   -webkit-animation-name: var(--modal-animation-name);
   -webkit-animation-duration: var(--modal-animation-duration);
   animation-name: var(--modal-animation-name);
@@ -412,4 +412,36 @@ nav.sitebottom a.link:hover {
   border-radius: 50%;
   background-color: red;
   color: white;
+}
+
+.main-menu {
+  opacity: 1;
+  position: fixed;
+  width: auto;
+  right: 0px;
+  top: 140px;
+  bottom: 42px;
+  overflow: auto;
+  padding: 0px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 0px 0px 0px 0px;
+  transition: all 0.5s ease;
+}
+.en .main-menu {
+  left: 0px;
+  right: auto;
+}
+.main-menu:hover {
+  opacity: 1;
+}
+.main-menu:hover .tab-link span {
+  display: inline-block;
+}
+.main-menu .tab-link span {
+  display: none;
+}
+.main-menu .tabs-header .tab-link {
+  color: #000;
 }
