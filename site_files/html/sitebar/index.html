@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2 class="brand ">
     <div class="row">
         <div class="col9 brand_title" help-id="brand_title">
@@ -47,4 +48,55 @@
 
 <div class="links">
     <div x-import="menu/index.html"></div>
+=======
+<h2 class="brand ">
+    <div class="row">
+        <div class="col9 brand_title" help-id="brand_title">
+            <div class="row">
+                <a ng-hide="'##user.type##' =='customer'  " x-permissions="login" href="#"
+                    onclick="event.stopPropagation(); $('.sitebar .links').toggle(200)"> <i class="fa fa-bars"></i>
+                </a>
+
+                <a href="/">
+                    ##word.brand_title## <span> ##word.brand_tag##</span>
+                </a>
+
+                <a class="padding"></a>
+                <a class="padding"></a>
+                <a class="padding"></a>
+
+
+                <a x-features="login" ng-hide="'##user.type##' == 'customer'" href="/report_orders"
+                    class="notification ">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <span ng-show="notifi > 0" class="badge">{{notifi}}</span>
+                </a>
+            </div>
+
+        </div>
+
+
+
+     
+
+        <div class="col3 text-left ">
+            <div class="info">
+                <span x-features="login" class=" user-name"> ##user.name## </span>
+                <a x-features="!login" id="btn_register" ng-click="registerCustomer()">
+                    ##word.customer_register##
+                </a>
+                <a x-features="login" id="btn_logout" ng-click="logout()"> ##word.security_logout##
+                </a>
+
+                <a x-features="!login" id="btn_login" ng-click="login()"> ##word.security_login## </a>
+            </div>
+        </div>
+    </div>
+
+
+</h2>
+
+<div class="links">
+    <div x-import="menu/index.html"></div>
+>>>>>>> e13a9aaf4299b13402a885a4c047c2b80c4e6398
 </div>
